@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pothole | Gael Carrillo Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sand: '#C2B280',
+            terra: '#B85B3E',
+            beige: '#F4F0E6',
+            cream: '#F8F5F0',
+            tan: '#D4C19C',
+            brown: '#6B4C3B'
+          },
+          fontFamily: {
+            display: ['Space Grotesk', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-cream text-brown font-body">
+
+  <header class="fixed top-0 left-0 w-full z-50 bg-cream/90 backdrop-blur-sm transition-all duration-300 border-b border-tan" id="header">
+    <div class="container mx-auto px-8 py-4 flex justify-between items-center">
+      <div class="text-sm tracking-widest font-display font-semibold text-brown">GAEL CARRILLO</div>
+      <nav class="flex space-x-8">
+        <a href="portfolio.html" class="text-sm tracking-widest uppercase font-light hover:opacity-60 transition">Back to Portfolio</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-32 pb-24 px-8">
+    <div class="container mx-auto max-w-4xl">
+      <a href="portfolio.html" class="inline-flex items-center text-terra hover:opacity-70 transition mb-12">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Back to Portfolio
+      </a>
+
+      <div class="bg-white rounded-2xl border border-tan/50 shadow-xl overflow-hidden">
+        <div class="w-full h-64 md:h-96 bg-sand flex items-center justify-center">
+          <div class="text-center text-cream">
+            <div class="w-24 h-24 mx-auto mb-4 bg-beige rounded-2xl flex items-center justify-center">
+              <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v4.83m-18 0V9a2 2 0 012-2m14 0h2m-6 12h.01"></path>
+              </svg>
+            </div>
+            <p class="text-sm opacity-75">Project Image Placeholder</p>
+          </div>
+        </div>
+
+        <div class="p-8 md:p-12">
+          <h1 class="text-4xl md:text-5xl font-display font-bold mb-6 flex items-center flex-wrap gap-3">
+            <span>Pothole</span>
+            <span class="px-3 py-1 bg-terra text-cream text-xs rounded-full">In Progress</span>
+          </h1>
+
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Python</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">OpenCV</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Computer Vision</span>
+          </div>
+
+          <p class="text-lg text-brown/70 mb-6 leading-relaxed">
+            Pothole is an in-progress project for detecting and reporting potholes to help prioritize road maintenance and improve community safety.
+          </p>
+
+          <p class="text-lg text-brown/70 mb-8 leading-relaxed">
+            Currently under active development, the project focuses on building accurate detection algorithms and planning future features for a web-based reporting system.
+          </p>
+
+          <div class="mb-8">
+            <h3 class="text-xl font-display font-bold mb-4">Key Features</h3>
+            <ul class="space-y-2 text-brown/70">
+              <li class="flex items-start">
+                <span class="text-terra mr-2">•</span>
+                Real-time pothole detection from images and video feeds
+              </li>
+              <li class="flex items-start">
+                <span class="text-terra mr-2">•</span>
+                Map-based reporting for city maintenance teams
+              </li>
+              <li class="flex items-start">
+                <span class="text-terra mr-2">•</span>
+                Dashboard for tracking detected issues and repair progress
+              </li>
+              <li class="flex items-start">
+                <span class="text-terra mr-2">•</span>
+                Notifications for low confidence detections and maintenance status updates
+              </li>
+            </ul>
+          </div>
+
+          <div class="mb-8">
+            <h3 class="text-xl font-display font-bold mb-4">Technical Challenges</h3>
+            <p class="text-brown/70 leading-relaxed">
+              Current development focuses on improving detection accuracy under varying lighting conditions, optimizing video processing performance, and designing a clean reporting workflow for non-technical users.
+            </p>
+          </div>
+
+          <div class="mb-8">
+            <h3 class="text-xl font-display font-bold mb-4">Technologies Used</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div class="bg-beige/50 rounded-lg p-4 text-center">
+                <div class="font-display font-bold text-terra">Python</div>
+                <div class="text-xs text-brown/60">Core Language</div>
+              </div>
+              <div class="bg-beige/50 rounded-lg p-4 text-center">
+                <div class="font-display font-bold text-terra">OpenCV</div>
+                <div class="text-xs text-brown/60">Computer Vision</div>
+              </div>
+              <div class="bg-beige/50 rounded-lg p-4 text-center">
+                <div class="font-display font-bold text-terra">Git</div>
+                <div class="text-xs text-brown/60">Version Control</div>
+              </div>
+              <div class="bg-beige/50 rounded-lg p-4 text-center">
+                <div class="font-display font-bold text-terra">NumPy</div>
+                <div class="text-xs text-brown/60">Data Processing</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-8 border-t border-tan/50">
+            <a href="https://github.com/GaelCT/Pothole" target="_blank" rel="noopener" class="inline-flex items-center text-terra hover:opacity-70 transition font-medium">
+              View on GitHub
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6m4 10h4m5-6a7 7 0 11-14 0 7 7 0 0114 0z"></svg>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="py-12 px-8 border-t border-tan">
+    <div class="container mx-auto max-w-4xl text-center">
+      <p class="text-brown/60 mb-4">Let's connect and build something together.</p>
+      <a href="mailto:gcarrillo-torres1@csub.edu" class="text-xl font-medium text-terra hover:opacity-70 transition">gcarrillo-torres1@csub.edu</a>
+      <div class="mt-8 pt-8 border-t border-tan/50">
+        <p class="text-xs text-brown/50">© 2027 Gael Carrillo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

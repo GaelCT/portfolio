@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PythonProjectASL | Gael Carrillo Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sand: '#C2B280',
+            terra: '#B85B3E',
+            beige: '#F4F0E6',
+            cream: '#F8F5F0',
+            tan: '#D4C19C',
+            brown: '#6B4C3B'
+          },
+          fontFamily: {
+            display: ['Space Grotesk', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          },
+          animation: {
+            'slide-up': 'slideUp 0.8s ease-out'
+          },
+          keyframes: {
+            slideUp: {
+              '0%': { opacity: 0, transform: 'translateY(40px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .project-image {
+      @apply w-full h-96 bg-gradient-to-br from-sand to-terra rounded-2xl flex items-center justify-center shadow-xl;
+    }
+  </style>
+</head>
+<body class="bg-cream text-brown font-body">
+
+  <header class="fixed top-0 left-0 w-full z-50 bg-cream/90 backdrop-blur-sm transition-all duration-300 border-b border-tan" id="header">
+    <div class="container mx-auto px-8 py-4 flex justify-between items-center">
+      <div class="text-sm tracking-widest font-display font-semibold text-brown">GAEL CARRILLO</div>
+      <nav class="flex space-x-8">
+        <a href="portfolio.html" class="text-sm tracking-widest uppercase font-light hover:opacity-60 transition">Back to Portfolio</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="pt-32 pb-24 px-8">
+    <div class="container mx-auto max-w-4xl">
+      <div class="mb-12 animate-slide-up">
+        <a href="portfolio.html" class="inline-flex items-center text-sm tracking-widest uppercase font-medium text-terra hover:opacity-70 transition">
+          ← Back to Portfolio
+        </a>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-tan/50 shadow-2xl overflow-hidden animate-slide-up" style="animation-delay: 0.2s">
+        <div class="p-8 md:p-12">
+          <div class="project-image mb-8">
+            <svg class="w-24 h-24 text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-12m0 0v12m-4-12H8"></path>
+            </svg>
+          </div>
+
+          <h1 class="text-4xl md:text-5xl font-display font-bold mb-6 tracking-tight">PythonProjectASL</h1>
+
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Python</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Git</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Jupyter Notebook</span>
+          </div>
+
+          <div class="prose prose-lg max-w-none text-brown/80 mb-8">
+            <p>
+              PythonProjectASL is a Python-based project centered on American Sign Language (ASL), combining accessible technology with hands-on programming practice.
+            </p>
+            <p>
+              This project explores working with ASL data using Python, covering fundamentals like data handling, scripting, and visualization. It was developed as part of my coursework at California State University, Bakersfield.
+            </p>
+            <p>
+              Through this project I strengthened my problem-solving skills and gained practical experience writing clean, well-structured Python code, using Git for version control throughout development.
+            </p>
+          </div>
+
+          <div class="flex gap-4">
+            <a href="https://github.com/GaelCT/PythonProjectASL" target="_blank" rel="noopener" class="px-6 py-3 bg-terra text-cream font-medium tracking-widest uppercase text-sm rounded-full hover:opacity-90 transition">
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-12 px-8 border-t border-tan">
+    <div class="container mx-auto max-w-4xl text-center">
+      <p class="text-brown/60 mb-4">Let's connect and build something together.</p>
+      <a href="mailto:gcarrillo-torres1@csub.edu" class="text-xl font-medium text-terra hover:opacity-70 transition">gcarrillo-torres1@csub.edu</a>
+      <div class="mt-8 pt-8 border-t border-tan/50">
+        <p class="text-xs text-brown/50">© 2027 Gael Carrillo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory Management System | Gael Carrillo Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sand: '#C2B280',
+            terra: '#B85B3E',
+            beige: '#F4F0E6',
+            cream: '#F8F5F0',
+            tan: '#D4C19C',
+            brown: '#6B4C3B'
+          },
+          fontFamily: {
+            display: ['Space Grotesk', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          },
+          animation: {
+            'slide-up': 'slideUp 0.8s ease-out'
+          },
+          keyframes: {
+            slideUp: {
+              '0%': { opacity: 0, transform: 'translateY(40px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .project-image {
+      @apply w-full h-96 bg-gradient-to-br from-sand to-terra rounded-2xl flex items-center justify-center shadow-xl;
+    }
+  </style>
+</head>
+<body class="bg-cream text-brown font-body">
+
+  <header class="fixed top-0 left-0 w-full z-50 bg-cream/90 backdrop-blur-sm transition-all duration-300 border-b border-tan" id="header">
+    <div class="container mx-auto px-8 py-4 flex justify-between items-center">
+      <div class="text-sm tracking-widest font-display font-semibold text-brown">GAEL CARRILLO</div>
+      <nav class="flex space-x-8">
+        <a href="portfolio.html" class="text-sm tracking-widest uppercase font-light hover:opacity-60 transition">Back to Portfolio</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="pt-32 pb-24 px-8">
+    <div class="container mx-auto max-w-4xl">
+      <div class="mb-12 animate-slide-up">
+        <a href="portfolio.html" class="inline-flex items-center text-sm tracking-widest uppercase font-medium text-terra hover:opacity-70 transition">
+          ← Back to Portfolio
+        </a>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-tan/50 shadow-2xl overflow-hidden animate-slide-up" style="animation-delay: 0.2s">
+        <div class="p-8 md:p-12">
+          <div class="project-image mb-8">
+            <svg class="w-24 h-24 text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2V7a2 2 0 002-2v-2a2 2 0 012-2h4a2 2 0 012 2v2a2 2 0 002 2v4a2 2 0 00-2 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2z"></path>
+            </svg>
+          </div>
+
+          <h1 class="text-4xl md:text-5xl font-display font-bold mb-6 tracking-tight">Inventory Management System</h1>
+
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Python</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Flask</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">SQLite</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">REST API</span>
+          </div>
+
+          <div class="prose prose-lg max-w-none text-brown/80 mb-8">
+            <p>
+              A comprehensive inventory management system designed to streamline warehouse operations and track product movement in real-time. This application addresses the common challenges of manual inventory tracking by providing automated stock level monitoring, expiration date tracking, and supplier management.
+            </p>
+            <p>
+              Key features include barcode scanning integration for quick item identification, low stock alerts via email notifications, and a dashboard with real-time analytics on inventory turnover. The system supports multiple warehouse locations and includes role-based access control for admin, manager, and staff users.
+            </p>
+            <p>
+              Built as a capstone project for my Software Engineering course, this application demonstrates full-stack development capabilities using Python Flask for the backend API and vanilla JavaScript for the frontend. The SQLite database is optimized for fast queries and the REST API follows best practices for HTTP methods and status codes. The project includes comprehensive unit tests and documentation, showcasing my commitment to code quality and maintainability.
+            </p>
+          </div>
+
+          <div class="flex gap-4">
+            <a href="#" class="px-6 py-3 bg-terra text-cream font-medium tracking-widest uppercase text-sm rounded-full hover:opacity-90 transition">
+              View on GitHub
+            </a>
+            <a href="#" class="px-6 py-3 bg-beige text-brown font-medium tracking-widest uppercase text-sm rounded-full hover:opacity-80 transition">
+              Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-12 px-8 border-t border-tan">
+    <div class="container mx-auto max-w-4xl text-center">
+      <p class="text-brown/60 mb-4">Let's connect and build something together.</p>
+      <a href="mailto:gcarrillo-torres1@csub.edu" class="text-xl font-medium text-terra hover:opacity-70 transition">gcarrillo-torres1@csub.edu</a>
+      <div class="mt-8 pt-8 border-t border-tan/50">
+        <p class="text-xs text-brown/50">© 2027 Gael Carrillo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
