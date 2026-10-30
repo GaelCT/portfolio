@@ -46,15 +46,15 @@
 <body class="bg-cream text-brown font-body">
 
   <header class="fixed top-0 left-0 w-full z-50 bg-cream/90 backdrop-blur-sm transition-all duration-300 border-b border-tan" id="header">
-    <div class="container mx-auto px-8 py-4 flex justify-between items-center">
+    <div class="container mx-auto px-4 sm:px-8 py-4 flex justify-between items-center">
       <div class="text-sm tracking-widest font-display font-semibold text-brown">GAEL CARRILLO</div>
-      <nav class="flex space-x-8">
-        <a href="portfolio.html" class="text-sm tracking-widest uppercase font-light hover:opacity-60 transition">Back to Portfolio</a>
+      <nav class="flex space-x-4 sm:space-x-8">
+        <a href="portfolio.html" class="hidden sm:inline text-sm tracking-widest uppercase font-light hover:opacity-60 transition">Back to Portfolio</a>
       </nav>
     </div>
   </header>
 
-  <section class="pt-32 pb-24 px-8">
+  <section class="pt-32 pb-24 px-4 sm:px-8">
     <div class="container mx-auto max-w-4xl">
       <div class="mb-12 animate-slide-up">
         <a href="portfolio.html" class="inline-flex items-center text-sm tracking-widest uppercase font-medium text-terra hover:opacity-70 transition">
@@ -64,12 +64,6 @@
 
       <div class="bg-white rounded-2xl border border-tan/50 shadow-2xl overflow-hidden animate-slide-up" style="animation-delay: 0.2s">
         <div class="p-8 md:p-12">
-          <div class="project-image mb-8">
-            <img src="hackathon.jpg" alt="Clearframe AI-generated video quality review hackathon prototype" class="w-full h-full object-cover rounded-2xl">
-          </div>
-
-          <video controls class="w-full rounded-2xl mb-8" src="71b2f548-57d1-44d0-8dde-983b91f04b1a.mp4" muted></video>
-
           <h1 class="text-4xl md:text-5xl font-display font-bold mb-6 flex items-center flex-wrap gap-3">
             <span>Clearframe</span>
             <span class="px-3 py-1 bg-terra text-cream text-xs rounded-full">Hackathon | Oct 2026</span>
@@ -99,12 +93,18 @@
               View on GitHub
             </a>
           </div>
+
+          <div class="project-image mb-8">
+            <img src="hackathon.jpg" alt="Clearframe AI-generated video quality review hackathon prototype" class="w-full h-full object-cover rounded-2xl">
+          </div>
+
+          <video controls class="w-full rounded-2xl mb-8" src="71b2f548-57d1-44d0-8dde-983b91f04b1a.mp4" muted></video>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="py-12 px-8 border-t border-tan">
+  <footer class="py-12 px-4 sm:px-8 border-t border-tan">
     <div class="container mx-auto max-w-4xl text-center">
       <p class="text-brown/60 mb-4">Let's connect and build something together.</p>
       <a href="portfolio.html#contact" class="text-xl font-medium text-terra hover:opacity-70 transition">gcarrillo-torres1@csub.edu</a>

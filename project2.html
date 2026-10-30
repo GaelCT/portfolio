@@ -32,15 +32,15 @@
 <body class="bg-cream text-brown font-body">
 
   <header class="fixed top-0 left-0 w-full z-50 bg-cream/90 backdrop-blur-sm transition-all duration-300 border-b border-tan" id="header">
-    <div class="container mx-auto px-8 py-4 flex justify-between items-center">
+    <div class="container mx-auto px-4 sm:px-8 py-4 flex justify-between items-center">
       <div class="text-sm tracking-widest font-display font-semibold text-brown">GAEL CARRILLO</div>
       <nav class="flex space-x-8">
-        <a href="portfolio.html" class="text-sm tracking-widest uppercase font-light hover:opacity-60 transition">Back to Portfolio</a>
+        <a href="portfolio.html" class="hidden sm:inline text-sm tracking-widest uppercase font-light hover:opacity-60 transition">Back to Portfolio</a>
       </nav>
     </div>
   </header>
 
-  <main class="pt-32 pb-24 px-8">
+  <main class="pt-32 pb-24 px-4 sm:px-8">
     <div class="container mx-auto max-w-4xl">
       <a href="portfolio.html" class="inline-flex items-center text-terra hover:opacity-70 transition mb-12">
         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -49,14 +49,8 @@
         Back to Portfolio
       </a>
 
-      <div class="bg-white rounded-2xl border border-tan/50 shadow-xl overflow-hidden">
-        <div class="w-full h-64 md:h-96 bg-sand flex items-center justify-center">
-          <img src="Pothole.png" alt="Pothole detection project" class="w-full h-full object-cover">
-        </div>
-      </div>
-
-        <div class="p-8 md:p-12">
-          <h1 class="text-4xl md:text-5xl font-display font-bold mb-6 flex items-center flex-wrap gap-3">
+        <div class="p-5 sm:p-8 md:p-12">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-6 flex items-center flex-wrap gap-3">
             <span>Pothole</span>
             <span class="px-3 py-1 bg-terra text-cream text-xs rounded-full">In Progress</span>
           </h1>
@@ -130,19 +124,25 @@
             <a href="https://github.com/GaelCT/Pothole" target="_blank" rel="noopener" class="inline-flex items-center text-terra hover:opacity-70 transition font-medium">
               View on GitHub
               <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6m4 10h4m5-6a7 7 0 11-14 0 7 7 0 0114 0z"></svg>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6m4 10h4m5-6a7 7 0 11-14 0 7 7 0 0114 0z"></path>
               </svg>
             </a>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-tan/50 shadow-xl overflow-hidden">
+            <div class="w-full h-64 md:h-96 bg-sand flex items-center justify-center">
+              <img src="Pothole.png" alt="Pothole detection project" class="w-full h-full object-cover">
+            </div>
           </div>
         </div>
       </div>
     </div>
   </main>
 
-  <footer class="py-12 px-8 border-t border-tan">
+  <footer class="py-12 px-4 sm:px-8 border-t border-tan">
     <div class="container mx-auto max-w-4xl text-center">
       <p class="text-brown/60 mb-4">Let's connect and build something together.</p>
-      <a href="portfolio.html#contact" class="text-xl font-medium text-terra hover:opacity-70 transition">gcarrillo-torres1@csub.edu</a>
+      <a href="portfolio.html#contact" class="text-lg sm:text-xl font-medium text-terra hover:opacity-70 transition">gcarrillo-torres1@csub.edu</a>
       <div class="mt-8 pt-8 border-t border-tan/50">
         <p class="text-xs text-brown/50">© 2027 Gael Carrillo. All rights reserved.</p>
       </div>

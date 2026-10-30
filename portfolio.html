@@ -67,9 +67,25 @@
 <body class="bg-cream text-brown font-body">
 
   <header class="fixed top-0 left-0 w-full z-50 bg-cream/90 backdrop-blur-sm transition-all duration-300 border-b border-tan" id="header">
-    <div class="container mx-auto px-8 py-4 flex justify-between items-center">
+    <div class="container mx-auto px-4 sm:px-8 py-4 flex justify-between items-center">
       <a href="portfolio.html" class="text-sm tracking-widest font-display font-semibold text-brown hover:opacity-60 transition">GAEL CARRILLO</a>
-      <nav class="flex space-x-8">
+      <nav class="hidden md:flex space-x-8">
+        <a href="#" data-tab="project" class="text-sm tracking-widest uppercase font-light hover:opacity-60 transition">Projects</a>
+        <a href="#" data-tab="leadership" class="text-sm tracking-widest uppercase font-light hover:opacity-60 transition">Leadership</a>
+        <a href="#about" class="text-sm tracking-widest uppercase font-light hover:opacity-60 transition">About</a>
+        <a href="#contact" class="text-sm tracking-widest uppercase font-light hover:opacity-60 transition">Contact</a>
+      </nav>
+      <button id="menu-btn" type="button" class="md:hidden text-brown hover:opacity-60 transition" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 6l12 12M6 18L18 6"></path>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-cream border-b border-tan">
+      <nav class="flex flex-col px-4 py-4 space-y-4">
         <a href="#" data-tab="project" class="text-sm tracking-widest uppercase font-light hover:opacity-60 transition">Projects</a>
         <a href="#" data-tab="leadership" class="text-sm tracking-widest uppercase font-light hover:opacity-60 transition">Leadership</a>
         <a href="#about" class="text-sm tracking-widest uppercase font-light hover:opacity-60 transition">About</a>
@@ -78,12 +94,12 @@
     </div>
   </header>
 
-  <section class="relative pt-32 pb-24 px-8 overflow-hidden">
+  <section class="relative pt-32 pb-24 px-4 sm:px-8 overflow-hidden">
     <div class="blob w-96 h-96 bg-sand/60 -top-10 -left-24 animate-float"></div>
     <div class="blob w-80 h-80 bg-terra/30 top-24 -right-20 animate-float" style="animation-delay: 2.5s"></div>
     <div class="container mx-auto max-w-6xl relative">
       <div class="mb-12 animate-fade-in">
-        <h1 class="text-6xl md:text-7xl font-display font-bold leading-tight mb-6 tracking-tight">
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-display font-bold leading-tight mb-6 tracking-tight">
           Hi, I'm <span class="text-terra">Gael</span>.<br>
           CS Student & Developer.
         </h1>
@@ -94,7 +110,7 @@
     </div>
   </section>
 
-  <div class="container mx-auto max-w-6xl px-8">
+  <div class="container mx-auto max-w-6xl px-4 sm:px-8">
     <div class="text-center mb-12">
       <div class="inline-flex bg-beige rounded-full p-1 mb-8">
         <button id="tab-projects" class="px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 tab-active">Projects</button>
@@ -103,7 +119,7 @@
     </div>
   </div>
 
-  <section id="projects" class="py-16 px-8 bg-cream">
+  <section id="projects" class="py-16 px-4 sm:px-8 bg-cream">
     <div class="container mx-auto max-w-6xl">
       <div class="text-center mb-12 reveal">
         <h2 class="text-4xl font-display font-bold mb-4">Projects</h2>
@@ -210,7 +226,7 @@
     </div>
   </section>
 
-  <section id="leadership" class="py-24 px-8 bg-beige/30 hidden">
+  <section id="leadership" class="py-24 px-4 sm:px-8 bg-beige/30 hidden">
     <div class="container mx-auto max-w-6xl">
       <div class="text-center mb-16 reveal">
         <h2 class="text-4xl font-display font-bold mb-6">Leadership Experiences</h2>
@@ -286,7 +302,7 @@
     </div>
   </section>
 
-  <section id="about" class="py-24 px-8">
+  <section id="about" class="py-24 px-4 sm:px-8">
     <div class="container mx-auto max-w-4xl">
       <div class="text-center mb-16 reveal">
         <h2 class="text-4xl font-display font-bold mb-6">About Me</h2>
@@ -311,7 +327,7 @@
     </div>
   </section>
 
-  <section id="contact" class="py-24 px-8 bg-beige/30">
+  <section id="contact" class="py-24 px-4 sm:px-8 bg-beige/30">
     <div class="container mx-auto max-w-3xl">
       <div class="text-center mb-12 reveal">
         <h2 class="text-4xl font-display font-bold mb-6">Get In Touch</h2>
@@ -348,7 +364,7 @@
     </div>
   </section>
 
-  <footer class="py-12 px-8 border-t border-tan">
+  <footer class="py-12 px-4 sm:px-8 border-t border-tan">
     <div class="container mx-auto max-w-4xl text-center">
       <p class="text-brown/60 mb-4">Let's connect and build something together.</p>
       <a href="#contact" class="text-xl font-medium text-terra hover:opacity-70 transition">gcarrillo-torres1@csub.edu</a>
@@ -379,13 +395,6 @@
           });
         }
       });
-    });
-
-    window.addEventListener('load', function () {
-      const projects = document.getElementById('projects');
-      if (projects) {
-        projects.scrollIntoView();
-      }
     });
 
     const revealElements = document.querySelectorAll('.reveal');
@@ -468,6 +477,37 @@
         }
       });
     });
+
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIconOpen = document.getElementById('menu-icon-open');
+    const menuIconClose = document.getElementById('menu-icon-close');
+
+    function setMenu(open) {
+      if (!mobileMenu || !menuBtn) return;
+      mobileMenu.classList.toggle('hidden', !open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      if (menuIconOpen && menuIconClose) {
+        menuIconOpen.classList.toggle('hidden', open);
+        menuIconClose.classList.toggle('hidden', !open);
+      }
+    }
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', function () {
+        setMenu(mobileMenu.classList.contains('hidden'));
+      });
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function () {
+          setMenu(false);
+        });
+      });
+      window.addEventListener('resize', function () {
+        if (window.innerWidth >= 768) {
+          setMenu(false);
+        }
+      });
+    }
   </script>
 </body>
 </html>

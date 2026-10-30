@@ -46,15 +46,15 @@
 <body class="bg-cream text-brown font-body">
 
   <header class="fixed top-0 left-0 w-full z-50 bg-cream/90 backdrop-blur-sm transition-all duration-300 border-b border-tan" id="header">
-    <div class="container mx-auto px-8 py-4 flex justify-between items-center">
+    <div class="container mx-auto px-4 sm:px-8 py-4 flex justify-between items-center">
       <div class="text-sm tracking-widest font-display font-semibold text-brown">GAEL CARRILLO</div>
       <nav class="flex space-x-8">
-        <a href="portfolio.html" class="text-sm tracking-widest uppercase font-light hover:opacity-60 transition">Back to Portfolio</a>
+        <a href="portfolio.html" class="hidden sm:inline text-sm tracking-widest uppercase font-light hover:opacity-60 transition">Back to Portfolio</a>
       </nav>
     </div>
   </header>
 
-  <section class="pt-32 pb-24 px-8">
+  <section class="pt-32 pb-24 px-4 sm:px-8">
     <div class="container mx-auto max-w-4xl">
       <div class="mb-12 animate-slide-up">
         <a href="portfolio.html" class="inline-flex items-center text-sm tracking-widest uppercase font-medium text-terra hover:opacity-70 transition">
@@ -63,11 +63,7 @@
       </div>
 
       <div class="bg-white rounded-2xl border border-tan/50 shadow-2xl overflow-hidden animate-slide-up" style="animation-delay: 0.2s">
-        <div class="p-8 md:p-12">
-          <div class="project-image mb-8">
-            <img src="ChatBranch.png" alt="ChatBranch project" class="w-full h-full object-cover rounded-2xl">
-          </div>
-
+        <div class="p-4 sm:p-8 md:p-12">
           <h1 class="text-4xl md:text-5xl font-display font-bold mb-6 tracking-tight">ChatBranch</h1>
 
           <div class="flex flex-wrap gap-2 mb-6">
@@ -92,7 +88,7 @@
             </p>
           </div>
 
-          <div class="flex gap-4">
+          <div class="flex flex-col sm:flex-row gap-4">
             <a href="https://github.com/GaelCT/ChatBranch" target="_blank" rel="noopener" class="px-6 py-3 bg-terra text-cream font-medium tracking-widest uppercase text-sm rounded-full hover:opacity-90 transition">
               View on GitHub
             </a>
@@ -100,12 +96,16 @@
               Live Demo
             </a>
           </div>
+
+          <div class="project-image mb-8">
+            <img src="ChatBranch.png" alt="ChatBranch project" class="w-full h-full object-cover rounded-2xl">
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="py-12 px-8 border-t border-tan">
+  <footer class="py-12 px-4 sm:px-8 border-t border-tan">
     <div class="container mx-auto max-w-4xl text-center">
       <p class="text-brown/60 mb-4">Let's connect and build something together.</p>
       <a href="portfolio.html#contact" class="text-xl font-medium text-terra hover:opacity-70 transition">gcarrillo-torres1@csub.edu</a>
