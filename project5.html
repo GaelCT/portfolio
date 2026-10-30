@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clearframe | Gael Carrillo Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sand: '#C2B280',
+            terra: '#B85B3E',
+            beige: '#F4F0E6',
+            cream: '#F8F5F0',
+            tan: '#D4C19C',
+            brown: '#6B4C3B'
+          },
+          fontFamily: {
+            display: ['Space Grotesk', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          },
+          animation: {
+            'slide-up': 'slideUp 0.8s ease-out'
+          },
+          keyframes: {
+            slideUp: {
+              '0%': { opacity: 0, transform: 'translateY(40px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .project-image {
+      @apply w-full h-96 bg-gradient-to-br from-sand to-terra rounded-2xl flex items-center justify-center shadow-xl;
+    }
+  </style>
+</head>
+<body class="bg-cream text-brown font-body">
+
+  <header class="fixed top-0 left-0 w-full z-50 bg-cream/90 backdrop-blur-sm transition-all duration-300 border-b border-tan" id="header">
+    <div class="container mx-auto px-8 py-4 flex justify-between items-center">
+      <div class="text-sm tracking-widest font-display font-semibold text-brown">GAEL CARRILLO</div>
+      <nav class="flex space-x-8">
+        <a href="portfolio.html" class="text-sm tracking-widest uppercase font-light hover:opacity-60 transition">Back to Portfolio</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="pt-32 pb-24 px-8">
+    <div class="container mx-auto max-w-4xl">
+      <div class="mb-12 animate-slide-up">
+        <a href="portfolio.html" class="inline-flex items-center text-sm tracking-widest uppercase font-medium text-terra hover:opacity-70 transition">
+          ← Back to Portfolio
+        </a>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-tan/50 shadow-2xl overflow-hidden animate-slide-up" style="animation-delay: 0.2s">
+        <div class="p-8 md:p-12">
+          <div class="project-image mb-8">
+            <img src="hackathon.jpg" alt="Clearframe AI-generated video quality review hackathon prototype" class="w-full h-full object-cover rounded-2xl">
+          </div>
+
+          <video controls class="w-full rounded-2xl mb-8" src="71b2f548-57d1-44d0-8dde-983b91f04b1a.mp4" muted></video>
+
+          <h1 class="text-4xl md:text-5xl font-display font-bold mb-6 flex items-center flex-wrap gap-3">
+            <span>Clearframe</span>
+            <span class="px-3 py-1 bg-terra text-cream text-xs rounded-full">Hackathon | Oct 2026</span>
+          </h1>
+
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Python</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Vision-Language Model</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">OpenCV</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Computer Vision</span>
+          </div>
+
+          <div class="prose prose-lg max-w-none text-brown/80 mb-8">
+            <p>
+              Clearframe is an AI-generated video quality review prototype created for the AI Hackathon. I co-developed a prototype combining local vision-language model review with frame-level brightness checks to investigate visible defects in AI-generated videos.
+            </p>
+            <p>
+              I evaluated model judgments on generated footage and identified unreliable road-marking assessments when frames were reviewed without source references.
+            </p>
+            <p>
+              I conducted exploratory source-versus-generated frame comparisons to investigate improvements in defect identification and document remaining limitations.
+            </p>
+          </div>
+
+          <div class="flex gap-4">
+            <a href="https://github.com/GaelCT/Clearframe" target="_blank" rel="noopener" class="px-6 py-3 bg-terra text-cream font-medium tracking-widest uppercase text-sm rounded-full hover:opacity-90 transition">
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-12 px-8 border-t border-tan">
+    <div class="container mx-auto max-w-4xl text-center">
+      <p class="text-brown/60 mb-4">Let's connect and build something together.</p>
+      <a href="mailto:gcarrillo-torres1@csub.edu" class="text-xl font-medium text-terra hover:opacity-70 transition">gcarrillo-torres1@csub.edu</a>
+      <div class="mt-8 pt-8 border-t border-tan/50">
+        <p class="text-xs text-brown/50">© 2027 Gael Carrillo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
