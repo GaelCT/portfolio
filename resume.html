@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Résumé for Gael Carrillo Torres, Computer Science student at California State University, Bakersfield.">
+  <title>Gael Carrillo Torres | Résumé</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: light; --cream:#F8F5F0; --beige:#F4F0E6; --tan:#D4C19C; --brown:#6B4C3B; --terra:#B85B3E; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--beige); color:#3f332d; font-family:Inter,Arial,sans-serif; line-height:1.45; }
+    .toolbar { max-width:900px; margin:24px auto 16px; padding:0 20px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+    .toolbar a, .toolbar button { min-height:44px; display:inline-flex; align-items:center; justify-content:center; border-radius:999px; padding:10px 18px; font:600 13px Inter,Arial,sans-serif; text-decoration:none; cursor:pointer; }
+    .back { color:var(--brown); border:1px solid var(--tan); background:var(--cream); }
+    .print { color:var(--cream); background:var(--terra); border:1px solid var(--terra); }
+    .toolbar a:hover, .toolbar button:hover { opacity:.85; }
+    .toolbar a:focus-visible, .toolbar button:focus-visible, .contact a:focus-visible { outline:3px solid var(--terra); outline-offset:3px; }
+    main { max-width:900px; margin:0 auto 32px; padding:46px 54px; background:#fff; box-shadow:0 12px 40px #6b4c3b1a; }
+    header { text-align:center; border-bottom:2px solid var(--brown); padding-bottom:14px; margin-bottom:18px; }
+    h1 { margin:0 0 8px; color:var(--brown); font-size:28px; letter-spacing:.05em; }
+    .contact { margin:3px 0; font-size:13px; }
+    .contact a { color:var(--terra); text-decoration:none; }
+    h2 { margin:18px 0 8px; padding-bottom:4px; border-bottom:1px solid var(--tan); color:var(--brown); font-size:14px; letter-spacing:.1em; }
+    h3 { margin:0; color:#3f332d; font-size:13px; }
+    p { margin:4px 0; font-size:12px; }
+    ul { margin:5px 0 8px; padding-left:19px; }
+    li { margin:3px 0; font-size:12px; }
+    .row { display:flex; justify-content:space-between; align-items:baseline; gap:18px; }
+    .row > :last-child { flex-shrink:0; text-align:right; }
+    .date, .tech { font-size:11px; font-style:italic; }
+    .entry { margin-bottom:10px; }
+    .skills p { margin:3px 0; }
+    @media (max-width:600px) {
+      main { margin:0; padding:30px 22px; box-shadow:none; }
+      .toolbar { margin:16px auto; }
+      h1 { font-size:23px; }
+      .row { display:block; }
+      .row > :last-child { text-align:left; }
+    }
+    @page { size:Letter; margin:.42in .48in; }
+    @media print {
+      body { background:#fff; }
+      .toolbar { display:none; }
+      main { max-width:none; margin:0; padding:0; box-shadow:none; }
+      header { padding-bottom:8px; margin-bottom:9px; }
+      h1 { font-size:20px; margin-bottom:4px; }
+      h2 { font-size:10px; margin:9px 0 4px; padding-bottom:2px; }
+      h3 { font-size:9px; }
+      p, li { font-size:8.2px; line-height:1.3; }
+      .contact { font-size:8.5px; }
+      .date, .tech { font-size:7.8px; }
+      ul { margin:2px 0 4px; padding-left:14px; }
+      li { margin:1px 0; }
+      .entry { margin-bottom:4px; }
+      a { color:inherit; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="toolbar" aria-label="Résumé actions">
+    <a class="back" href="portfolio.html">← Back to Portfolio</a>
+    <button class="print" type="button" onclick="window.print()">Print / Save PDF</button>
+  </nav>
+  <main>
+    <header>
+      <h1>GAEL CARRILLO TORRES</h1>
+      <p class="contact">Bakersfield, California | (661) 889-0886 | <a href="mailto:gaelcarrillo995@gmail.com">gaelcarrillo995@gmail.com</a></p>
+      <p class="contact"><a href="http://www.linkedin.com/in/gael2">LinkedIn</a> | <a href="https://github.com/GaelCT">GitHub</a> | <a href="https://gaelcarrillo.com">gaelcarrillo.com</a></p>
+    </header>
+
+    <section>
+      <h2>EDUCATION</h2>
+      <div class="row"><h3>California State University, Bakersfield</h3><p><strong>GPA: 3.4</strong></p></div>
+      <div class="row"><p>Bachelor of Science in Computer Science</p><p>Expected December 2027</p></div>
+      <p>Relevant coursework: Data Structures, Web Development, Linux Administration; in progress: Database Systems, Algorithm Analysis, Programming Languages.</p>
+    </section>
+
+    <section>
+      <h2>SKILLS</h2>
+      <div class="skills">
+        <p><strong>Languages:</strong> C++, C, Python, JavaScript, SQL (MySQL), HTML/CSS, PHP, MATLAB, Dart</p>
+        <p><strong>Tools and frameworks:</strong> Git/GitHub, VS Code, PyCharm, Flutter, Fusion 360, Notion, Obsidian</p>
+        <p><strong>Spoken languages:</strong> English and Spanish (bilingual)</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>PROJECTS</h2>
+      <article class="entry">
+        <div class="row"><h3>ASL Recognition and Text Correction</h3><p class="date">09/2026 - Present</p></div>
+        <p class="tech">Python, OpenCV, MediaPipe, scikit-learn, Qwen, LM Studio</p>
+        <ul>
+          <li>Developed a local Random Forest ASL classifier using a self-collected MediaPipe dataset of approximately 32,000 rows across 24 Excel columns, with an estimated 60–70% recognition accuracy.</li>
+          <li>Added local text correction through Qwen and LM Studio to handle spelling errors and timing-induced spaces; implemented gesture shortcuts for dynamic ASL letters.</li>
+        </ul>
+      </article>
+      <article class="entry">
+        <div class="row"><h3>Pothole Detection and Mapping Platform</h3><p class="date">09/2026 - Present</p></div>
+        <p class="tech">Next.js, TypeScript, SQLite, YOLO, Label Studio | In progress</p>
+        <ul>
+          <li>Trained a YOLO pothole detector using 300 road images annotated in Label Studio.</li>
+          <li>Built a reporting pipeline pairing photos, GPS coordinates, and street descriptions into city-service request drafts for manual filing; dashcam/model integration remains in progress.</li>
+        </ul>
+      </article>
+      <article class="entry">
+        <div class="row"><h3>Clearframe | Dell × NVIDIA AI Hackathon</h3><p class="date">10/2026</p></div>
+        <p class="tech">Python, SQLite, OpenClaw, Slack API | Dell GB10 | Experimental prototype</p>
+        <ul>
+          <li>Automated review-result tracking and Slack status updates by connecting Python, SQLite, and OpenClaw for a local AI-video review prototype.</li>
+          <li>Implemented human confirmation and prompt-approval checks; road-marking and unnatural-object detection remained unreliable in the team’s exploratory tests.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section>
+      <h2>EXPERIENCE</h2>
+      <article class="entry">
+        <div class="row"><h3>State of California | CalGEM, Department of Conservation</h3><p>Bakersfield, CA</p></div>
+        <div class="row"><p>Student Assistant | Data Services and Quality Control</p><p class="date">06/2026 - Present</p></div>
+        <ul>
+          <li>Validated 300+ physical and digital well logs against state regulatory databases by cross-referencing historical records and geophysical logs.</li>
+          <li>Resolved missing entries, data discrepancies, and formatting errors across 1,000+ geological records and operator submissions.</li>
+        </ul>
+      </article>
+      <article class="entry">
+        <div class="row"><h3>California State University, Bakersfield</h3><p>Bakersfield, CA</p></div>
+        <div class="row"><p>Software Engineering Club | President</p><p class="date">08/2025 - Present</p></div>
+        <ul>
+          <li>Delivered the 2026 Coding Cup for 30+ participants in 25 days by coordinating club officers and event logistics for Engineering Day.</li>
+          <li>Configured competition development environments supporting 10 programming languages and upper-division programming problems.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section>
+      <h2>LEADERSHIP AND INVOLVEMENT</h2>
+      <div class="row"><h3>Hack the Valley AI Hackathon</h3><p class="date">May 2026</p></div>
+      <p>Organized the CSUB AI hackathon for approximately 33 attendees and 16 projects by securing sponsors, promoting the event, and leading event preparation.</p>
+      <p>Society of Automotive Engineers Vice President; Society of Hispanic Professional Engineers Social Media Manager; Public Health Treasurer; MESA Space Member.</p>
+    </section>
+  </main>
+</body>
+</html>
