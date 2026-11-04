@@ -1,0 +1,26 @@
+name: CI/CD
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Test
+        run: make test
+
+      - name: Deploy via rsync
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H ${{ secrets.HOST }} >> ~/.ssh/known_hosts
+          rsync -avz --delete \
+            --exclude '.git' --exclude '.github' --exclude '.env' \
+            --exclude 'Makefile' --exclude 'README.md' \
+            ./ ${{ secrets.USER }}@${{ secrets.HOST }}:~/public_html/
