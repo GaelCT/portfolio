@@ -24,9 +24,9 @@ window.NAVBAR_CONFIG = window.NAVBAR_CONFIG || {
        relative path; the one matching the current URL gets the pill. */
     links: [
         { label: "Home",     href: "portfolio.html" },
-        { label: "Projects", href: "portfolio.html#projects" },
-        { label: "About",    href: "portfolio.html#about" },
-        { label: "Contact",  href: "portfolio.html#contact" },
+        { label: "Projects", href: "projects.html" },
+        { label: "About",    href: "about.html" },
+        { label: "Contact",  href: "contact.html" },
         { label: "Résumé",   href: "resume.html" }
     ],
 
