@@ -24,4 +24,8 @@ jobs:
             --exclude '.git' --exclude '.github' --exclude '.env' \
             --exclude 'Makefile' --exclude 'README.md' \
             --rsync-path="sudo rsync" \
+            ./ ${{ secrets.USER }}@${{ secrets.HOST }}:/var/www/html/ \
+          || rsync -avz --delete \
+            --exclude '.git' --exclude '.github' --exclude '.env' \
+            --exclude 'Makefile' --exclude 'README.md' \
             ./ ${{ secrets.USER }}@${{ secrets.HOST }}:/var/www/html/
