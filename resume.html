@@ -12,7 +12,7 @@
     :root { color-scheme: light; --cream:#F8F5F0; --beige:#F4F0E6; --tan:#D4C19C; --brown:#6B4C3B; --terra:#B85B3E; }
     * { box-sizing: border-box; }
     body { margin:0; background:var(--beige); color:#3f332d; font-family:Inter,Arial,sans-serif; line-height:1.45; }
-    .toolbar { max-width:900px; margin:24px auto 16px; padding:0 20px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+    .toolbar { max-width:900px; margin:118px auto 16px; padding:0 20px; display:flex; justify-content:flex-end; align-items:center; gap:12px; flex-wrap:wrap; }
     .toolbar a, .toolbar button { min-height:44px; display:inline-flex; align-items:center; justify-content:center; border-radius:999px; padding:10px 18px; font:600 13px Inter,Arial,sans-serif; text-decoration:none; cursor:pointer; }
     .back { color:var(--brown); border:1px solid var(--tan); background:var(--cream); }
     .print { color:var(--cream); background:var(--terra); border:1px solid var(--terra); }
@@ -58,10 +58,12 @@
       a { color:inherit; }
     }
   </style>
+  <link rel="stylesheet" href="navbar.css">
+  <script src="navbar.js" defer></script>
 </head>
 <body>
+  <div data-navbar data-navbar-current="Résumé"></div>
   <nav class="toolbar" aria-label="Résumé actions">
-    <a class="back" href="portfolio.html">← Back to Portfolio</a>
     <button class="print" type="button" onclick="window.print()">Print / Save PDF</button>
   </nav>
   <main>

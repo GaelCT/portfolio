@@ -59,40 +59,16 @@
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .blob { position: absolute; border-radius: 9999px; filter: blur(70px); pointer-events: none; }
-    section[id] { scroll-margin-top: 5rem; }
+    section[id] { scroll-margin-top: 7.5rem; }
     .tab-active { background-color: #B85B3E; color: #fff; }
     .tab-inactive { background-color: transparent; color: #6B4C3B; }
   </style>
+  <link rel="stylesheet" href="navbar.css">
+  <script src="navbar.js" defer></script>
 </head>
 <body class="bg-cream text-brown font-body">
 
-  <header class="fixed top-0 left-0 w-full z-50 bg-cream/90 backdrop-blur-sm transition-all duration-300 border-b border-tan" id="header">
-    <div class="container mx-auto px-4 sm:px-8 py-4 flex justify-between items-center">
-      <a href="portfolio.html" class="text-sm tracking-widest font-display font-semibold text-brown hover:opacity-60 transition">GAEL CARRILLO</a>
-      <nav class="hidden md:flex space-x-8">
-        <a href="#" data-tab="project" class="text-sm tracking-widest uppercase font-light hover:opacity-60 transition">Projects</a>
-        <a href="#" data-tab="leadership" class="text-sm tracking-widest uppercase font-light hover:opacity-60 transition">Leadership</a>
-        <a href="#about" class="text-sm tracking-widest uppercase font-light hover:opacity-60 transition">About</a>
-        <a href="#contact" class="text-sm tracking-widest uppercase font-light hover:opacity-60 transition">Contact</a>
-      </nav>
-      <button id="menu-btn" type="button" class="md:hidden text-brown hover:opacity-60 transition" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
-        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 6l12 12M6 18L18 6"></path>
-        </svg>
-      </button>
-    </div>
-    <div id="mobile-menu" class="hidden md:hidden bg-cream border-b border-tan">
-      <nav class="flex flex-col px-4 py-4 space-y-4">
-        <a href="#" data-tab="project" class="text-sm tracking-widest uppercase font-light hover:opacity-60 transition">Projects</a>
-        <a href="#" data-tab="leadership" class="text-sm tracking-widest uppercase font-light hover:opacity-60 transition">Leadership</a>
-        <a href="#about" class="text-sm tracking-widest uppercase font-light hover:opacity-60 transition">About</a>
-        <a href="#contact" class="text-sm tracking-widest uppercase font-light hover:opacity-60 transition">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <div data-navbar></div>
 
   <section class="relative pt-32 pb-24 px-4 sm:px-8 overflow-hidden">
     <div class="blob w-96 h-96 bg-sand/60 -top-10 -left-24 animate-float"></div>
@@ -379,15 +355,6 @@
   </footer>
 
   <script>
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('shadow-sm');
-      } else {
-        header.classList.remove('shadow-sm');
-      }
-    });
-
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -470,48 +437,6 @@
 
     tabProjects.addEventListener('click', showProjects);
     tabLeadership.addEventListener('click', showLeadership);
-
-    document.querySelectorAll('[data-tab]').forEach(tab => {
-      tab.addEventListener('click', function() {
-        const target = this.getAttribute('data-tab');
-        if (target === 'project') {
-          showProjects();
-        } else if (target === 'leadership') {
-          showLeadership();
-        }
-      });
-    });
-
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIconOpen = document.getElementById('menu-icon-open');
-    const menuIconClose = document.getElementById('menu-icon-close');
-
-    function setMenu(open) {
-      if (!mobileMenu || !menuBtn) return;
-      mobileMenu.classList.toggle('hidden', !open);
-      menuBtn.setAttribute('aria-expanded', String(open));
-      if (menuIconOpen && menuIconClose) {
-        menuIconOpen.classList.toggle('hidden', open);
-        menuIconClose.classList.toggle('hidden', !open);
-      }
-    }
-
-    if (menuBtn && mobileMenu) {
-      menuBtn.addEventListener('click', function () {
-        setMenu(mobileMenu.classList.contains('hidden'));
-      });
-      mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function () {
-          setMenu(false);
-        });
-      });
-      window.addEventListener('resize', function () {
-        if (window.innerWidth >= 768) {
-          setMenu(false);
-        }
-      });
-    }
   </script>
 </body>
 </html>
