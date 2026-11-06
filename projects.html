@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Gael Carrillo Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sand: '#C2B280',
+            terra: '#B85B3E',
+            beige: '#F4F0E6',
+            cream: '#F8F5F0',
+            tan: '#D4C19C',
+            brown: '#6B4C3B'
+          },
+          fontFamily: {
+            display: ['Space Grotesk', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'slide-up': 'slideUp 0.8s ease-out',
+            'fade-in': 'fadeIn 0.8s ease-out',
+            'pulse-slow': 'pulse 3s ease-in-out infinite'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' }
+            },
+            slideUp: {
+              '0%': { opacity: 0, transform: 'translateY(40px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' }
+            },
+            fadeIn: {
+              '0%': { opacity: 0 },
+              '100%': { opacity: 1 }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    .project-card {
+      @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-1;
+    }
+    .project-card:nth-child(1) { animation: slide-up 0.8s ease-out; }
+    .project-card:nth-child(2) { animation: slide-up 0.8s ease-out 0.2s both; }
+    .project-card:nth-child(3) { animation: slide-up 0.8s ease-out 0.4s both; }
+    .project-card:nth-child(4) { animation: slide-up 0.8s ease-out 0.6s both; }
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .blob { position: absolute; border-radius: 9999px; filter: blur(70px); pointer-events: none; }
+    section[id] { scroll-margin-top: 7.5rem; }
+    .tab-active { background-color: #B85B3E; color: #fff; }
+    .tab-inactive { background-color: transparent; color: #6B4C3B; }
+  </style>
+  <link rel="stylesheet" href="navbar.css">
+  <script src="navbar.js" defer></script>
+</head>
+<body class="bg-cream text-brown font-body">
+
+  <div data-navbar></div>
+
+  <section class="pt-32 pb-4 px-4 sm:px-8">
+    <div class="container mx-auto max-w-6xl text-center">
+      <div class="inline-flex bg-beige rounded-full p-1">
+        <button id="tab-projects" class="px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 tab-active">Projects</button>
+        <button id="tab-leadership" class="px-6 py-2 rounded-full text-sm font-medium transition-all duration-300">Leadership</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="py-16 px-4 sm:px-8 bg-cream">
+    <div class="container mx-auto max-w-6xl">
+      <div class="text-center mb-12 reveal">
+        <h2 class="text-4xl font-display font-bold mb-4">Projects</h2>
+        <p class="text-brown/70 max-w-2xl mx-auto">A look at what I've been building.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <div class="project-card bg-white rounded-2xl p-8 border border-tan/50 shadow-lg">
+          <div class="w-16 h-16 bg-sand rounded-xl mb-6 flex items-center justify-center">
+            <svg class="w-8 h-8 text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-12m0 0l-4 12m4-12v12"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-display font-bold mb-3">PythonProjectASL</h3>
+          <p class="text-brown/70 mb-6">A Python-based project centered on American Sign Language (ASL), combining accessible technology with hands-on programming practice.</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Python</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Git</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Jupyter Notebook</span>
+          </div>
+          <a href="project1.html" class="text-sm tracking-widest uppercase font-medium text-terra hover:opacity-70 transition">View Project →</a>
+        </div>
+
+        <div class="project-card bg-white rounded-2xl p-8 border border-tan/50 shadow-lg">
+          <div class="w-16 h-16 bg-terra rounded-xl mb-6 flex items-center justify-center">
+            <svg class="w-8 h-8 text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v4.83m-18 0V9a2 2 0 012-2m14 0h2m-6 12h.01"></path>
+            </svg>
+          </div>
+          <div class="flex items-center flex-wrap gap-3 mb-3">
+            <h3 class="text-2xl font-display font-bold">Pothole</h3>
+            <span class="px-3 py-1 bg-terra text-cream text-xs rounded-full">In Progress</span>
+          </div>
+          <p class="text-brown/70 mb-6">An in-progress project for detecting and reporting potholes to help prioritize road maintenance. Currently under active development.</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Python</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">OpenCV</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Computer Vision</span>
+          </div>
+          <a href="project2.html" class="text-sm tracking-widest uppercase font-medium text-terra hover:opacity-70 transition">View Project →</a>
+        </div>
+
+        <div class="project-card bg-white rounded-2xl p-8 border border-tan/50 shadow-lg">
+          <div class="w-16 h-16 bg-brown rounded-xl mb-6 flex items-center justify-center">
+            <svg class="w-8 h-8 text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-display font-bold mb-3">ChatBranch</h3>
+          <p class="text-brown/70 mb-6">AI-assisted developer tool that structures LLM output into parseable JSON for GitHub workflow automation — built to help students manage branching, commits, and PRs through natural language.</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">TypeScript</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">GitHub API</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">OAuth</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">JSON Schema</span>
+          </div>
+          <a href="project3.html" class="text-sm tracking-widest uppercase font-medium text-terra hover:opacity-70 transition">View Project →</a>
+        </div>
+
+        <div class="project-card bg-white rounded-2xl p-8 border border-tan/50 shadow-lg">
+          <div class="w-16 h-16 bg-sand rounded-xl mb-6 flex items-center justify-center">
+            <svg class="w-8 h-8 text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 002-2h-4zm-4 8l6-4v8l-6-4z"></path>
+            </svg>
+          </div>
+          <div class="flex items-center flex-wrap gap-3 mb-3">
+            <h3 class="text-2xl font-display font-bold">Clearframe</h3>
+            <span class="px-3 py-1 bg-terra text-cream text-xs rounded-full">Hackathon | Oct 2026</span>
+          </div>
+          <p class="text-brown/70 mb-6">AI-Generated Video Quality Review Prototype.</p>
+          <ul class="text-brown/70 mb-6 space-y-2 list-disc pl-5">
+            <li>Co-developed a prototype combining local vision-language model review with frame-level brightness checks to investigate visible defects in AI-generated videos.</li>
+            <li>Evaluated model judgments on generated footage and identified unreliable road-marking assessments when frames were reviewed without source references.</li>
+            <li>Conducted exploratory source-versus-generated frame comparisons to investigate improvements in defect identification and document remaining limitations.</li>
+          </ul>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Python</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Vision-Language Model</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">OpenCV</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Computer Vision</span>
+          </div>
+          <a href="project5.html" class="text-sm tracking-widest uppercase font-medium text-terra hover:opacity-70 transition">View Project →</a>
+        </div>
+
+        <!--
+        <div class="project-card bg-white rounded-2xl p-8 border border-tan/50 shadow-lg">
+          <div class="w-16 h-16 bg-sand rounded-xl mb-6 flex items-center justify-center">
+            <svg class="w-8 h-8 text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-display font-bold mb-3">[Project Title]</h3>
+          <p class="text-brown/70 mb-6">[Brief project description. Mention key technologies and the problem it solves.]</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">[Java]</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">[Spring Boot]</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">[PostgreSQL]</span>
+          </div>
+          <a href="project4.html" class="text-sm tracking-widest uppercase font-medium text-terra hover:opacity-70 transition">View Project →</a>
+        </div>
+        -->
+
+      </div>
+    </div>
+  </section>
+
+  <section id="leadership" class="py-24 px-4 sm:px-8 bg-beige/30 hidden">
+    <div class="container mx-auto max-w-6xl">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-4xl font-display font-bold mb-6">Leadership Experiences</h2>
+        <p class="text-brown/70 max-w-2xl mx-auto">The positions I hold with my clubs and the events we have been able to do together.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div class="reveal bg-white rounded-2xl p-6 border border-tan/50 shadow-lg">
+          <div class="w-14 h-14 bg-terra rounded-xl mb-4 flex items-center justify-center">
+            <svg class="w-7 h-7 text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-display font-bold mb-1">Software Engineering Club</h3>
+          <p class="text-terra font-medium tracking-wide mb-3">President</p>
+          <p class="text-brown/70 text-sm leading-relaxed">Co-founded and revived the club from inactive status (Fall 2025–present). Built student engagement through targeted outreach and led a team to execute major events.</p>
+        </div>
+
+        <div class="reveal bg-white rounded-2xl p-6 border border-tan/50 shadow-lg" style="transition-delay: 0.1s">
+          <div class="w-14 h-14 bg-brown rounded-xl mb-4 flex items-center justify-center">
+            <svg class="w-7 h-7 text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-display font-bold mb-1">Society of Automotive Engineers</h3>
+          <p class="text-terra font-medium tracking-wide mb-3">Vice President</p>
+          <p class="text-brown/70 text-sm leading-relaxed">Support chapter operations and event planning for CSUB's SAE chapter. Collaborate on engineering competitions and member development (Fall 2024–present).</p>
+        </div>
+
+        <div class="reveal bg-white rounded-2xl p-6 border border-tan/50 shadow-lg" style="transition-delay: 0.2s">
+          <div class="w-14 h-14 bg-sand rounded-xl mb-4 flex items-center justify-center">
+            <svg class="w-7 h-7 text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-display font-bold mb-1">SHPE</h3>
+          <p class="text-terra font-medium tracking-wide mb-3">Social Media Manager</p>
+          <p class="text-brown/70 text-sm leading-relaxed">Manage digital presence and community outreach for the Society of Hispanic Professional Engineers chapter. Create content promoting events and membership (Fall 2024–present).</p>
+        </div>
+
+        <div class="reveal bg-white rounded-2xl p-6 border border-tan/50 shadow-lg" style="transition-delay: 0.3s">
+          <div class="w-14 h-14 bg-terra/50 rounded-xl mb-4 flex items-center justify-center">
+            <svg class="w-7 h-7 text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-display font-bold mb-1">Public Health Society</h3>
+          <p class="text-terra font-medium tracking-wide mb-3">Treasurer</p>
+          <p class="text-brown/70 text-sm leading-relaxed">Manage chapter finances, budgeting for events and operations. Ensure fiscal compliance and transparency for student organization (Fall 2024–present).</p>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <h3 class="text-2xl font-display font-bold mb-8">Key Events Organized</h3>
+        <div class="space-y-4">
+          <div class="bg-white rounded-xl p-6 border border-tan/50 shadow flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+            <div>
+              <div class="font-display font-bold text-lg">Coding Cup</div>
+              <div class="text-sm text-brown/60">Managed most planning and execution solo — 25+ students (CSUB + local high school) · 2 difficulty tiers · 13 projects · $1,250+ prizes · Local sponsors: Sequoia Sandwich, FWD: Dynamics, Dunkin Donuts · Major sponsors: Bakersfield Mazda, Hacker Fund, Sequoia Sandwich Company · Full planning-to-execution in 28 days (vs. typical 6 months)</div>
+            </div>
+            <div class="text-sm tracking-widest uppercase text-terra whitespace-nowrap">Spring 2026</div>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 border border-tan/50 shadow flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+            <div>
+              <div class="font-display font-bold text-lg">AI Hackathon</div>
+              <div class="text-sm text-brown/60">40+ participants · 13 projects submitted · $1,250+ in prizes awarded · Major sponsors: Bakersfield Mazda, Hacker Fund, Sequoia Sandwich Company · Highlight: high school team built "Decode It" — a bilingual (English/Spanish) tool that explains legal and financial paperwork in plain language</div>
+            </div>
+            <div class="text-sm tracking-widest uppercase text-terra whitespace-nowrap">Spring 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-12 px-4 sm:px-8 border-t border-tan">
+    <div class="container mx-auto max-w-4xl text-center">
+      <p class="text-brown/60 mb-4">Let's connect and build something together.</p>
+      <a href="mailto:gcarrillo-torres1@csub.edu" class="text-xl font-medium text-terra hover:opacity-70 transition">gcarrillo-torres1@csub.edu</a>
+      <div class="mt-8 pt-8 border-t border-tan/50">
+        <p class="text-xs text-brown/50">© 2027 Gael Carrillo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    const tabProjects = document.getElementById('tab-projects');
+    const tabLeadership = document.getElementById('tab-leadership');
+    const projectsSection = document.getElementById('projects');
+    const leadershipSection = document.getElementById('leadership');
+
+    function showProjects() {
+      projectsSection.classList.remove('hidden');
+      leadershipSection.classList.add('hidden');
+      tabProjects.classList.add('tab-active');
+      tabProjects.classList.remove('tab-inactive');
+      tabLeadership.classList.add('tab-inactive');
+      tabLeadership.classList.remove('tab-active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showLeadership() {
+      projectsSection.classList.add('hidden');
+      leadershipSection.classList.remove('hidden');
+      tabLeadership.classList.add('tab-active');
+      tabLeadership.classList.remove('tab-inactive');
+      tabProjects.classList.add('tab-inactive');
+      tabProjects.classList.remove('tab-active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    tabProjects.addEventListener('click', showProjects);
+    tabLeadership.addEventListener('click', showLeadership);
+  </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Gael Carrillo Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sand: '#C2B280',
+            terra: '#B85B3E',
+            beige: '#F4F0E6',
+            cream: '#F8F5F0',
+            tan: '#D4C19C',
+            brown: '#6B4C3B'
+          },
+          fontFamily: {
+            display: ['Space Grotesk', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.8s ease-out'
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: 0 },
+              '100%': { opacity: 1 }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+  <link rel="stylesheet" href="navbar.css">
+  <script src="navbar.js" defer></script>
+</head>
+<body class="bg-cream text-brown font-body">
+
+  <div data-navbar></div>
+
+  <section class="pt-40 pb-24 px-4 sm:px-8">
+    <div class="container mx-auto max-w-4xl">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-4xl font-display font-bold mb-6">About Me</h2>
+        <p class="text-brown/70 max-w-2xl mx-auto">
+          Passionate CS student with a focus on full-stack development, machine learning, and creating elegant technical solutions.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center reveal">
+        <div>
+          <div class="text-3xl font-display text-terra mb-2">2027</div>
+          <div class="text-sm text-brown/60 uppercase">Class Year</div>
+        </div>
+        <div>
+          <div class="text-2xl md:text-3xl font-display text-terra mb-2">California State University Bakersfield</div>
+          <div class="text-sm text-brown/60 uppercase">Current School</div>
+        </div>
+        <div>
+          <div class="text-3xl font-display text-terra mb-2">Bakersfield, Kern County</div>
+          <div class="text-sm text-brown/60 uppercase">Based In</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-12 px-4 sm:px-8 border-t border-tan">
+    <div class="container mx-auto max-w-4xl text-center">
+      <p class="text-brown/60 mb-4">Let's connect and build something together.</p>
+      <a href="mailto:gcarrillo-torres1@csub.edu" class="text-xl font-medium text-terra hover:opacity-70 transition">gcarrillo-torres1@csub.edu</a>
+      <div class="mt-8 pt-8 border-t border-tan/50">
+        <p class="text-xs text-brown/50">© 2027 Gael Carrillo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealElements.forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+</html>

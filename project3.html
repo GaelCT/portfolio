@@ -42,23 +42,18 @@
       @apply w-full h-96 bg-gradient-to-br from-sand to-terra rounded-2xl flex items-center justify-center shadow-xl;
     }
   </style>
+  <link rel="stylesheet" href="navbar.css">
+  <script src="navbar.js" defer></script>
 </head>
 <body class="bg-cream text-brown font-body">
 
-  <header class="fixed top-0 left-0 w-full z-50 bg-cream/90 backdrop-blur-sm transition-all duration-300 border-b border-tan" id="header">
-    <div class="container mx-auto px-4 sm:px-8 py-4 flex justify-between items-center">
-      <div class="text-sm tracking-widest font-display font-semibold text-brown">GAEL CARRILLO</div>
-      <nav class="flex space-x-8">
-        <a href="portfolio.html" class="hidden sm:inline text-sm tracking-widest uppercase font-light hover:opacity-60 transition">Back to Portfolio</a>
-      </nav>
-    </div>
-  </header>
+  <div data-navbar data-navbar-current="Projects"></div>
 
   <section class="pt-32 pb-24 px-4 sm:px-8">
     <div class="container mx-auto max-w-4xl">
       <div class="mb-12 animate-slide-up">
-        <a href="portfolio.html" class="inline-flex items-center text-sm tracking-widest uppercase font-medium text-terra hover:opacity-70 transition">
-          ← Back to Portfolio
+        <a href="projects.html" class="inline-flex items-center text-sm tracking-widest uppercase font-medium text-terra hover:opacity-70 transition">
+          ← Back to Projects
         </a>
       </div>
 
@@ -105,7 +100,7 @@
   <footer class="py-12 px-4 sm:px-8 border-t border-tan">
     <div class="container mx-auto max-w-4xl text-center">
       <p class="text-brown/60 mb-4">Let's connect and build something together.</p>
-      <a href="portfolio.html#contact" class="text-xl font-medium text-terra hover:opacity-70 transition">gcarrillo-torres1@csub.edu</a>
+      <a href="contact.html" class="text-xl font-medium text-terra hover:opacity-70 transition">gcarrillo-torres1@csub.edu</a>
       <div class="mt-8 pt-8 border-t border-tan/50">
         <p class="text-xs text-brown/50">© 2027 Gael Carrillo. All rights reserved.</p>
       </div>

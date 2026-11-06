@@ -1,0 +1,411 @@
+/* ============================================================
+   Glass Pill Navbar — extracted from noahgallego.com's nav system.
+   Drop-in: link this file, then include navbar.js (see NAVBAR_CONFIG
+   at the top of that file). Injects into <div data-navbar></div>,
+   or prepends to <body> if no placeholder exists.
+   ============================================================ */
+
+/* Anchor targets shouldn't land under the floating pill (~102px tall). */
+html { scroll-padding-top: 118px; }
+
+/* Nav-scoped vars (--ease/--spring/--accent are consumed only inside
+   .site-nav rules, so they never leak into the host page.) */
+.site-nav {
+    --ease: cubic-bezier(.22, 1, .36, 1);
+    --spring: cubic-bezier(0.34, 1.45, 0.64, 1);
+    --accent: #0071e3;
+    --pill-1: #0a84ff;
+    --pill-2: #0071e3;
+    --pill-3: #5e5ce6;
+    --ink-nav: #f5f5f7;
+}
+
+.site-nav, .site-nav *, .site-nav *::before, .site-nav *::after { box-sizing: border-box; }
+
+/* ---------- Nav: dark graphite glass pill ----------
+   Wide at the top of the page, then on scroll it shrinks into a compact
+   pill hugging the content. left/right are animated (not width) so
+   margin:auto keeps it centered at every viewport width. */
+.site-nav {
+    position: fixed;
+    top: 16px;
+    left: 2.5vw;
+    right: 2.5vw;
+    margin-inline: auto;
+    max-width: none;
+    height: 78px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 6px 6px 6px 24px;
+    background: rgba(23, 23, 26, 0.66);
+    backdrop-filter: saturate(180%) blur(24px);
+    -webkit-backdrop-filter: saturate(180%) blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1000px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+                 "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    transition: left .7s var(--spring), right .7s var(--spring),
+                height .7s var(--spring), padding .7s var(--spring),
+                background-color .5s var(--ease), box-shadow .5s var(--ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-nav { transition: background-color .2s ease, box-shadow .2s ease; }
+}
+
+.site-nav.nav--scrolled {
+    left: calc(50vw - 480px);
+    right: calc(50vw - 480px);
+    height: 64px;
+    padding: 4px 28px 4px 32px;
+    justify-content: space-between;
+    background: rgba(23, 23, 26, 0.82);
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.32);
+}
+
+/* Even spacing: brand + every link treated as equal slots across the pill. */
+.site-nav.nav--scrolled .site-nav__links {
+    flex: 1;
+    justify-content: space-evenly;
+    margin-left: 20px;
+}
+
+@media (max-width: 1020px) {
+    .site-nav.nav--scrolled {
+        left: 2.5vw;
+        right: 2.5vw;
+    }
+}
+
+.site-nav__brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+    color: var(--ink-nav);
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+/* Brand lockup: monogram + name. On scroll the wordmark fades/slides
+   out, leaving the monogram. Color via currentColor (dynamic). */
+.brand-lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ink-nav);
+}
+
+.brand__mark {
+    height: 2.1rem;
+    width: 2.1rem;
+    flex: none;
+    transition: transform .6s var(--spring, cubic-bezier(0.34, 1.45, 0.64, 1));
+}
+
+.site-nav__brand:hover .brand__mark { transform: rotate(-8deg) scale(1.08); }
+
+.brand__word {
+    flex: none;
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity .45s ease, transform .5s cubic-bezier(0.22, 1, 0.36, 1),
+                max-width .55s cubic-bezier(0.22, 1, 0.36, 1);
+    max-width: 420px;
+    overflow: hidden;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+/* Per-letter load-in: same stagger idea as the original's SVG stroke-draw,
+   but works for any name without hand-tuned glyph metrics. */
+.brand__word .l {
+    display: inline-block;
+    animation: nkLetter .55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(var(--i, 0) * .045s);
+}
+
+@keyframes nkLetter {
+    from { opacity: 0; transform: translateY(7px); }
+    to   { opacity: 1; transform: none; }
+}
+
+/* Scroll: wordmark collapses away; monogram stays. */
+.nav--scrolled .brand__word {
+    opacity: 0;
+    transform: translateX(-8px);
+    max-width: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .brand__mark, .brand__word { transition: none; }
+    .nav--scrolled .brand__word { display: none; }
+    .brand__word .l { animation: none; }
+}
+
+.site-nav__links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+/* Sliding active/hover blob behind the links — JS moves it via
+   --pill-x / --pill-w. It squashes & stretches while gliding so it
+   feels liquid, not mechanical. */
+.site-nav__pill {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: var(--pill-w, 0px);
+    height: calc(100% - 6px);
+    border-radius: 999px;
+    background: linear-gradient(120deg, var(--pill-1) 0%, var(--pill-2) 45%, var(--pill-3) 100%);
+    box-shadow: 0 2px 12px color-mix(in srgb, var(--pill-1) 45%, transparent),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transform: translate(var(--pill-x, 0px), -50%) scaleX(var(--pill-sx, 1)) skewX(var(--pill-skew, 0deg));
+    opacity: 0;
+    transition: transform .65s var(--spring), width .65s var(--spring), opacity .25s ease;
+    pointer-events: none;
+    z-index: 0;
+    will-change: transform, width;
+}
+
+.site-nav__pill.is-visible { opacity: 1; }
+
+.site-nav__links li { position: relative; z-index: 1; }
+
+.site-nav__links a {
+    display: block;
+    color: rgba(235, 235, 240, 0.88);
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.site-nav__links a:hover { color: #fff; }
+.site-nav__links a[aria-current="page"] { color: #fff; }
+
+/* The checkbox must stay reachable by keyboard: `hidden` or display:none at
+   mobile width drops it from the tab order and locks keyboard users out. */
+.nav-toggle { display: none; }
+.nav-toggle-label { display: none; }
+
+@media (max-width: 760px) {
+    /* Mobile: same pill, slightly tighter. The pill itself grows into ONE
+       continuous rounded container when the menu opens. */
+    .site-nav,
+    .site-nav.nav--scrolled {
+        top: 12px;
+        left: 12px;
+        right: 12px;
+        height: auto;
+        min-height: 52px;
+        padding: 4px 6px 4px 16px;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        border-radius: 999px;
+        transition: left .7s var(--spring), right .7s var(--spring),
+                    padding .7s var(--spring), border-radius .45s var(--spring),
+                    background-color .5s var(--ease), box-shadow .5s var(--ease);
+    }
+
+    .site-nav:has(.nav-toggle:checked),
+    .site-nav.nav--scrolled:has(.nav-toggle:checked) {
+        border-radius: 26px;
+    }
+
+    .nav-toggle-label {
+        display: flex;
+        flex: 0 0 auto;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 8px;
+        margin: 0 0 0 auto;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Keep the menu control in a fixed right-side slot while the wordmark
+       collapses on scroll. */
+    .site-nav__brand {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .nav-toggle {
+        display: block;
+        position: absolute;
+        width: 1px; height: 1px;
+        margin: -1px; padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
+    .nav-toggle:focus-visible ~ .nav-toggle-label {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+        border-radius: 6px;
+    }
+
+    .nav-toggle-label span {
+        width: 22px;
+        height: 2px;
+        background: var(--ink-nav);
+        border-radius: 2px;
+        transition: transform .25s var(--ease), opacity .2s var(--ease);
+    }
+
+    /* Links flow INSIDE the pill on a new row. Collapsed: max-height 0 so
+       the pill stays a compact pill. */
+    .site-nav__links {
+        flex: 0 0 100%;
+        flex-basis: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+        padding: 0;
+        margin: 0;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-6px);
+        pointer-events: none;
+        transition: max-height .5s var(--spring),
+                    opacity .3s var(--ease),
+                    transform .45s var(--spring),
+                    padding .45s var(--spring);
+    }
+
+    .site-nav.nav--scrolled .site-nav__links {
+        flex: 0 0 100%;
+        margin-left: 0;
+    }
+
+    .nav-toggle:checked ~ .site-nav__links {
+        max-height: 480px;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+        padding: 8px 4px 10px;
+    }
+
+    .site-nav__links a {
+        display: block;
+        padding: 12px 16px;
+        font-size: 1.05rem;
+        color: rgba(235, 235, 240, 0.92);
+        border-radius: 14px;
+        transition: background-color .2s var(--ease), color .2s var(--ease);
+    }
+
+    .site-nav__links a:hover,
+    .site-nav__links a:active {
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+    }
+
+    .site-nav__links a[aria-current="page"] {
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+    }
+
+    /* The sliding desktop blob doesn't belong on mobile. */
+    .site-nav__pill { display: none; }
+
+    .nav-toggle:checked ~ .nav-toggle-label span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle:checked ~ .nav-toggle-label span:nth-child(2) { opacity: 0; }
+    .nav-toggle:checked ~ .nav-toggle-label span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
+
+/* ---------- Skip link ---------- */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 200;
+    background: #1d1d1f;
+    color: #fff;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 12px 22px;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter",
+                 "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.skip-link:focus { left: 12px; top: 12px; }
+
+/* ---------- Page exit fade (added to <html> by JS during internal nav) ---------- */
+@keyframes nkPageExit {
+    to { opacity: 0; transform: translate3d(0, -5px, 0); filter: blur(3px); }
+}
+
+html.nk-js.nk-page-leaving body > main,
+html.nk-js.nk-page-leaving #hero {
+    animation: nkPageExit .18s ease-in both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html.nk-js.nk-page-leaving body > main,
+    html.nk-js.nk-page-leaving #hero { animation: none; }
+}
+
+/* Never print the floating chrome. */
+@media print {
+    .site-nav,
+    .skip-link { display: none !important; }
+}
+
+/* ---------- Mobile perf overrides — kill expensive animations on coarse pointers. */
+@media (pointer: coarse) {
+    .site-nav__pill,
+    .site-nav,
+    .brand__mark,
+    .brand__word,
+    .brand__word .l {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+    }
+    .site-nav {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: rgba(251, 251, 253, 0.92) !important;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12) !important;
+    }
+    /* The perf override swaps the dark glass pill for a light one — flip
+       the near-white ink to dark so nothing renders white-on-white. */
+    .nav-toggle-label span { background: #1d1d1f !important; }
+    .site-nav__links a { color: rgba(29, 29, 31, 0.88) !important; }
+    .site-nav__links a:hover,
+    .site-nav__links a:active {
+        background: rgba(0, 0, 0, 0.05) !important;
+        color: #1d1d1f !important;
+    }
+    .site-nav__links a[aria-current="page"] {
+        background: rgba(0, 0, 0, 0.06) !important;
+        color: #1d1d1f !important;
+    }
+    .site-nav__brand,
+    .brand-lockup,
+    .brand__mark,
+    .brand__word { color: #1d1d1f !important; }
+}
