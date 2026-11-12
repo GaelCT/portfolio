@@ -37,7 +37,12 @@ window.NAVBAR_CONFIG = window.NAVBAR_CONFIG || {
     /* Optional: your own SVG markup for the brand mark (viewBox ~ 0 0 40 40,
        currentColor for the ink). Leave null for the auto monogram:
        your initials on a gradient squircle. */
-    logoSvg: null
+    logoSvg: null,
+
+    /* Optional: Google Analytics 4 measurement ID (format G-XXXXXXXXXX).
+       Paste your ID here to enable analytics on every page; leave null
+       to stay untracked. Create a free property at https://analytics.google.com */
+    ga4MeasurementId: null
 };
 
 (function () {
@@ -131,6 +136,20 @@ window.NAVBAR_CONFIG = window.NAVBAR_CONFIG || {
     function build() {
         var mount = document.querySelector('[data-navbar]');
         var current = currentLabel();
+
+        /* Site-wide analytics: this script loads on every page, so the
+           tag fires everywhere once an ID is set in NAVBAR_CONFIG. */
+        if (cfg.ga4MeasurementId) {
+            var gaId = String(cfg.ga4MeasurementId);
+            var gaScript = document.createElement('script');
+            gaScript.async = true;
+            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaId);
+            document.head.appendChild(gaScript);
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = function () { window.dataLayer.push(arguments); };
+            window.gtag('js', new Date());
+            window.gtag('config', gaId);
+        }
 
         var links = (cfg.links || []).map(function (l) {
             var cur = l.label === current ? ' aria-current="page"' : '';
