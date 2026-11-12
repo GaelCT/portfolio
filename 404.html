@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found | Gael Carrillo Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sand: '#C2B280',
+            terra: '#B85B3E',
+            beige: '#F4F0E6',
+            cream: '#F8F5F0',
+            tan: '#D4C19C',
+            brown: '#6B4C3B'
+          },
+          fontFamily: {
+            display: ['Space Grotesk', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'fade-in': 'fadeIn 0.8s ease-out'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-16px)' }
+            },
+            fadeIn: {
+              '0%': { opacity: 0 },
+              '100%': { opacity: 1 }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="navbar.css">
+  <script src="navbar.js" defer></script>
+</head>
+<body class="bg-cream text-brown font-body">
+
+  <div data-navbar></div>
+
+  <section class="pt-40 pb-24 px-4 sm:px-8 min-h-[70vh] flex items-center">
+    <div class="container mx-auto max-w-4xl text-center">
+      <div class="animate-float mb-8">
+        <svg class="w-24 h-24 mx-auto text-terra" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M12 21a9 9 0 100-18 9 9 0 000 18zm-4.757-4.757L3 20l1.395-3.72M19.757 16.243L21 20l-1.395-3.72"></path>
+        </svg>
+      </div>
+      <p class="text-6xl md:text-8xl font-display font-bold text-terra mb-4">404</p>
+      <h1 class="text-2xl md:text-3xl font-display font-bold mb-4">This page took a wrong turn.</h1>
+      <p class="text-brown/70 max-w-xl mx-auto mb-10">
+        The link is broken, the page moved, or it never existed. Either way — the good stuff is still here.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
+        <a href="index.html" class="px-6 py-3 bg-terra text-cream font-medium tracking-widest uppercase text-sm rounded-full hover:opacity-90 transition">Back to Home</a>
+        <a href="projects.html" class="px-6 py-3 border border-terra text-terra font-medium tracking-widest uppercase text-sm rounded-full hover:bg-terra hover:text-cream transition">View Projects</a>
+      </div>
+      <div class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm">
+        <a href="about.html" class="text-brown/60 hover:text-terra transition">About</a>
+        <a href="resume.html" class="text-brown/60 hover:text-terra transition">Résumé</a>
+        <a href="contact.html" class="text-brown/60 hover:text-terra transition">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-12 px-4 sm:px-8 border-t border-tan">
+    <div class="container mx-auto max-w-4xl text-center">
+      <p class="text-brown/60 mb-4">Let's connect and build something together.</p>
+      <a href="mailto:gcarrillo-torres1@csub.edu" class="text-xl font-medium text-terra hover:opacity-70 transition">gcarrillo-torres1@csub.edu</a>
+      <div class="mt-8 pt-8 border-t border-tan/50">
+        <p class="text-xs text-brown/50">© 2027 Gael Carrillo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

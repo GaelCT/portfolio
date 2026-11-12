@@ -40,6 +40,75 @@
   <style type="text/tailwindcss">
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-48px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+    .reveal-right { opacity: 0; transform: translateX(48px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+    .reveal-left.visible, .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+    .timeline { position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 1.25rem;
+      width: 2px;
+      background-color: #D4C19C;
+    }
+    .timeline-fill {
+      position: absolute;
+      top: 0;
+      left: 1.25rem;
+      width: 2px;
+      height: 0;
+      background: linear-gradient(#B85B3E, #C2B280);
+      transition: height 0.15s linear;
+    }
+    .timeline-item { position: relative; width: 100%; padding-left: 3.5rem; margin-bottom: 2.5rem; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 1.75rem;
+      left: 0.8125rem;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 9999px;
+      background-color: #B85B3E;
+      border: 3px solid #F8F5F0;
+      box-shadow: 0 0 0 2px #B85B3E;
+      z-index: 1;
+    }
+    .timeline-card {
+      background-color: #fff;
+      border: 1px solid rgba(212, 193, 156, 0.5);
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 10px 15px -3px rgba(107, 76, 59, 0.1);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .timeline-card:hover { box-shadow: 0 20px 25px -5px rgba(107, 76, 59, 0.18); transform: translateY(-4px); }
+    .timeline-year {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #B85B3E;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .timeline::before, .timeline-fill { left: 50%; margin-left: -1px; }
+      .timeline-item { width: 50%; padding-left: 0; margin-bottom: 3.5rem; }
+      .timeline-item::before { left: auto; top: 2rem; }
+      .timeline-item.align-left { padding-right: 3rem; }
+      .timeline-item.align-left::before { right: -0.5625rem; }
+      .timeline-item.align-right { margin-left: 50%; padding-left: 3rem; }
+      .timeline-item.align-right::before { left: -0.5625rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
+      .timeline-card:hover { transform: none; }
+    }
   </style>
   <link rel="stylesheet" href="navbar.css">
   <script src="navbar.js" defer></script>
@@ -95,6 +164,70 @@
     </div>
   </section>
 
+  <section class="pb-24 px-4 sm:px-8">
+    <div class="container mx-auto max-w-4xl">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-4xl font-display font-bold mb-6">The Journey</h2>
+        <p class="text-brown/70 max-w-2xl mx-auto">
+          What I'm proudest of, year by year — from my first officer roles to the finish line. Eagle Scout happened somewhere in there too.
+        </p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-fill"></div>
+
+        <div class="timeline-item align-left reveal-left">
+          <div class="timeline-card">
+            <div class="timeline-year">2024</div>
+            <h3 class="text-xl font-display font-bold mb-2">First Taste of Leadership</h3>
+            <p class="text-brown/70 mb-4">Stepped into three officer roles at once — Vice President of the Society of Automotive Engineers, Social Media Manager for SHPE, and Treasurer of the Public Health Society.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-beige text-brown/70 text-xs rounded-full">SAE</span>
+              <span class="px-3 py-1 bg-beige text-brown/70 text-xs rounded-full">SHPE</span>
+              <span class="px-3 py-1 bg-beige text-brown/70 text-xs rounded-full">Public Health Society</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item align-right reveal-right">
+          <div class="timeline-card">
+            <div class="timeline-year">2025</div>
+            <h3 class="text-xl font-display font-bold mb-2">Built a Club From Nothing</h3>
+            <p class="text-brown/70 mb-4">Co-founded and revived CSUB's Software Engineering Club from inactive status — then was elected its President. The club went on to host the campus's biggest coding events.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-beige text-brown/70 text-xs rounded-full">Software Engineering Club</span>
+              <span class="px-3 py-1 bg-beige text-brown/70 text-xs rounded-full">President</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item align-left reveal-left">
+          <div class="timeline-card">
+            <div class="timeline-year">2026</div>
+            <h3 class="text-xl font-display font-bold mb-2">Shipping for the Real World</h3>
+            <p class="text-brown/70 mb-4">Joined CalGEM as a Student Assistant (300+ well logs validated, 1,000+ records cleaned), ran the Coding Cup for 25+ students with $1,250+ in prizes, organized an AI Hackathon for 40+, and built Clearframe at the Dell × NVIDIA hackathon.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-beige text-brown/70 text-xs rounded-full">CalGEM</span>
+              <span class="px-3 py-1 bg-beige text-brown/70 text-xs rounded-full">Coding Cup</span>
+              <span class="px-3 py-1 bg-beige text-brown/70 text-xs rounded-full">Hackathons</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item align-right reveal-right">
+          <div class="timeline-card">
+            <div class="timeline-year">2027</div>
+            <h3 class="text-xl font-display font-bold mb-2">The Finish Line</h3>
+            <p class="text-brown/70 mb-4">Wrapping up a B.S. in Computer Science at CSU Bakersfield — and looking for the next problem worth solving.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-beige text-brown/70 text-xs rounded-full">B.S. Computer Science</span>
+              <span class="px-3 py-1 bg-beige text-brown/70 text-xs rounded-full">CSUB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer class="py-12 px-4 sm:px-8 border-t border-tan">
     <div class="container mx-auto max-w-4xl text-center">
       <p class="text-brown/60 mb-4">Let's connect and build something together.</p>
@@ -116,6 +249,19 @@
       });
     }, { threshold: 0.1 });
     revealElements.forEach(el => revealObserver.observe(el));
+
+    const timeline = document.querySelector('.timeline');
+    const timelineFill = document.querySelector('.timeline-fill');
+    function updateTimelineFill() {
+      if (!timeline || !timelineFill) return;
+      const rect = timeline.getBoundingClientRect();
+      const anchor = window.innerHeight * 0.6;
+      const progress = Math.min(Math.max(anchor - rect.top, 0), rect.height);
+      timelineFill.style.height = progress + 'px';
+    }
+    window.addEventListener('scroll', updateTimelineFill, { passive: true });
+    window.addEventListener('resize', updateTimelineFill);
+    updateTimelineFill();
   </script>
 </body>
 </html>
