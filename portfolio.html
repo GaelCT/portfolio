@@ -7,61 +7,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            sand: '#C2B280',
-            terra: '#B85B3E',
-            beige: '#F4F0E6',
-            cream: '#F8F5F0',
-            tan: '#D4C19C',
-            brown: '#6B4C3B'
-          },
-          fontFamily: {
-            display: ['Space Grotesk', 'sans-serif'],
-            body: ['Inter', 'sans-serif']
-          },
-          animation: {
-            'float': 'float 6s ease-in-out infinite',
-            'slide-up': 'slideUp 0.8s ease-out',
-            'fade-in': 'fadeIn 0.8s ease-out',
-            'pulse-slow': 'pulse 3s ease-in-out infinite'
-          },
-          keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-20px)' }
-            },
-            slideUp: {
-              '0%': { opacity: 0, transform: 'translateY(40px)' },
-              '100%': { opacity: 1, transform: 'translateY(0)' }
-            },
-            fadeIn: {
-              '0%': { opacity: 0 },
-              '100%': { opacity: 1 }
-            }
-          }
-        }
-      }
-    }
-  </script>
-  <style type="text/tailwindcss">
-    .project-card {
-      @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-1;
-    }
-    .project-card:nth-child(1) { animation: slide-up 0.8s ease-out; }
-    .project-card:nth-child(2) { animation: slide-up 0.8s ease-out 0.2s both; }
-    .project-card:nth-child(3) { animation: slide-up 0.8s ease-out 0.4s both; }
-    .project-card:nth-child(4) { animation: slide-up 0.8s ease-out 0.6s both; }
+  <link rel="stylesheet" href="tailwind.css">
+  <style>
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .blob { position: absolute; border-radius: 9999px; filter: blur(70px); pointer-events: none; }
     section[id] { scroll-margin-top: 7.5rem; }
-    .tab-active { background-color: #B85B3E; color: #fff; }
-    .tab-inactive { background-color: transparent; color: #6B4C3B; }
   </style>
   <link rel="stylesheet" href="navbar.css">
   <script src="navbar.js" defer></script>

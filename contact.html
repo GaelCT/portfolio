@@ -7,31 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            sand: '#C2B280',
-            terra: '#B85B3E',
-            beige: '#F4F0E6',
-            cream: '#F8F5F0',
-            tan: '#D4C19C',
-            brown: '#6B4C3B'
-          },
-          fontFamily: {
-            display: ['Space Grotesk', 'sans-serif'],
-            body: ['Inter', 'sans-serif']
-          },
-          animation: {
-            'pulse-slow': 'pulse 3s ease-in-out infinite'
-          }
-        }
-      }
-    }
-  </script>
-  <style type="text/tailwindcss">
+  <link rel="stylesheet" href="tailwind.css">
+  <style>
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
   </style>
