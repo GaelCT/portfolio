@@ -5,10 +5,11 @@ module.exports = {
     extend: {
       colors: {
         sand: '#C2B280',
-        terra: '#B85B3E',
+        terra: '#A34A2A',
         beige: '#F4F0E6',
         cream: '#F8F5F0',
         tan: '#D4C19C',
+            cocoa: '#5D4433',
         brown: '#6B4C3B'
       },
       fontFamily: {

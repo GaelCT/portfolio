@@ -32,7 +32,7 @@ window.NAVBAR_CONFIG = window.NAVBAR_CONFIG || {
 
     /* Optional: one accent color for the pill + focus ring (any CSS color).
        Leave null to keep the default blue→violet gradient. */
-    accent: "#B85B3E",
+    accent: "#A34A2A",
 
     /* Optional: your own SVG markup for the brand mark (viewBox ~ 0 0 40 40,
        currentColor for the ink). Leave null for the auto monogram:
