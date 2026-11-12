@@ -59,11 +59,20 @@
 
       <div class="bg-white rounded-2xl border border-tan/50 shadow-2xl overflow-hidden animate-slide-up" style="animation-delay: 0.2s">
         <div class="p-8 md:p-12">
-          <div class="project-image mb-8">
-            <svg class="w-24 h-24 text-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-12m0 0v12m-4-12H8"></path>
-            </svg>
+          <div class="relative mb-2 aspect-video rounded-2xl overflow-hidden border-2 border-dashed border-tan bg-beige/40">
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+              <svg class="w-10 h-10 text-terra mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <p class="font-display font-bold text-brown/70 mb-1">Demo coming soon</p>
+              <p class="text-sm text-brown/50">Drop <code class="text-terra">demo-asl.mp4</code> next to this page and it plays here automatically.</p>
+            </div>
+            <video class="absolute inset-0 w-full h-full object-cover" autoplay loop muted playsinline preload="metadata">
+              <source src="demo-asl.mp4" type="video/mp4">
+            </video>
           </div>
+          <p class="text-xs text-brown/50 mb-8">Demo slot: 20–45s screen recording saved as <code>demo-asl.mp4</code> in the site root — it autoplays muted and loops.</p>
 
           <h1 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-6 tracking-tight break-words">PythonProjectASL</h1>
 
