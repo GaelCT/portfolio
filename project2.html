@@ -51,17 +51,19 @@
           </h1>
 
           <div class="flex flex-wrap gap-2 mb-8">
-            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Python</span>
-            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">OpenCV</span>
-            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Computer Vision</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Next.js</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">TypeScript</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">SQLite</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">YOLO</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Label Studio</span>
           </div>
 
           <p class="text-lg text-brown/70 mb-6 leading-relaxed">
-            Pothole is an in-progress project for detecting and reporting potholes to help prioritize road maintenance and improve community safety.
+            Pothole is a detection and mapping platform that turns road photos into prioritized maintenance reports. A YOLO detector trained on 300 road images annotated in Label Studio identifies potholes from images, and a Next.js + TypeScript + SQLite pipeline pairs each detection with GPS coordinates and street descriptions.
           </p>
 
           <p class="text-lg text-brown/70 mb-8 leading-relaxed">
-            Currently under active development, the project focuses on building accurate detection algorithms and planning future features for a web-based reporting system.
+            Detections are assembled into city-service request drafts ready for manual filing. Dashcam capture and live model integration are in active development.
           </p>
 
           <div class="mb-8">
@@ -69,19 +71,19 @@
             <ul class="space-y-2 text-brown/70">
               <li class="flex items-start">
                 <span class="text-terra mr-2">•</span>
-                Real-time pothole detection from images and video feeds
+                YOLO detection trained on 300 hand-annotated road images
               </li>
               <li class="flex items-start">
                 <span class="text-terra mr-2">•</span>
-                Map-based reporting for city maintenance teams
+                Reporting pipeline pairing photos, GPS coordinates, and street descriptions
               </li>
               <li class="flex items-start">
                 <span class="text-terra mr-2">•</span>
-                Dashboard for tracking detected issues and repair progress
+                City-service request drafts ready for manual filing
               </li>
               <li class="flex items-start">
                 <span class="text-terra mr-2">•</span>
-                Notifications for low confidence detections and maintenance status updates
+                In progress: dashcam capture and live model integration
               </li>
             </ul>
           </div>
@@ -89,28 +91,36 @@
           <div class="mb-8">
             <h3 class="text-xl font-display font-bold mb-4">Technical Challenges</h3>
             <p class="text-brown/70 leading-relaxed">
-              Current development focuses on improving detection accuracy under varying lighting conditions, optimizing video processing performance, and designing a clean reporting workflow for non-technical users.
+              The work so far has focused on getting reliable detection from a modest 300-image annotated dataset, keeping the report schema clean enough for city workflows, and shaping the pipeline so dashcam footage can plug in without rework.
             </p>
           </div>
 
           <div class="mb-8">
             <h3 class="text-xl font-display font-bold mb-4">Technologies Used</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <div class="bg-beige/50 rounded-lg p-4 text-center">
+                <div class="font-display font-bold text-terra">Next.js</div>
+                <div class="text-xs text-brown/60">Frontend</div>
+              </div>
+              <div class="bg-beige/50 rounded-lg p-4 text-center">
+                <div class="font-display font-bold text-terra">TypeScript</div>
+                <div class="text-xs text-brown/60">Language</div>
+              </div>
+              <div class="bg-beige/50 rounded-lg p-4 text-center">
+                <div class="font-display font-bold text-terra">SQLite</div>
+                <div class="text-xs text-brown/60">Database</div>
+              </div>
+              <div class="bg-beige/50 rounded-lg p-4 text-center">
+                <div class="font-display font-bold text-terra">YOLO</div>
+                <div class="text-xs text-brown/60">Detection Model</div>
+              </div>
+              <div class="bg-beige/50 rounded-lg p-4 text-center">
+                <div class="font-display font-bold text-terra">Label Studio</div>
+                <div class="text-xs text-brown/60">Annotation</div>
+              </div>
               <div class="bg-beige/50 rounded-lg p-4 text-center">
                 <div class="font-display font-bold text-terra">Python</div>
-                <div class="text-xs text-brown/60">Core Language</div>
-              </div>
-              <div class="bg-beige/50 rounded-lg p-4 text-center">
-                <div class="font-display font-bold text-terra">OpenCV</div>
-                <div class="text-xs text-brown/60">Computer Vision</div>
-              </div>
-              <div class="bg-beige/50 rounded-lg p-4 text-center">
-                <div class="font-display font-bold text-terra">Git</div>
-                <div class="text-xs text-brown/60">Version Control</div>
-              </div>
-              <div class="bg-beige/50 rounded-lg p-4 text-center">
-                <div class="font-display font-bold text-terra">NumPy</div>
-                <div class="text-xs text-brown/60">Data Processing</div>
+                <div class="text-xs text-brown/60">Model Training</div>
               </div>
             </div>
           </div>

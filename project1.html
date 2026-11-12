@@ -69,19 +69,21 @@
 
           <div class="flex flex-wrap gap-2 mb-6">
             <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Python</span>
-            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Git</span>
-            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Jupyter Notebook</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">OpenCV</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">MediaPipe</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">scikit-learn</span>
+            <span class="px-3 py-1 bg-beige text-brown/70 text-sm rounded-full">Qwen + LM Studio</span>
           </div>
 
           <div class="prose prose-lg max-w-none text-brown/80 mb-8">
             <p>
-              PythonProjectASL is a Python-based project centered on American Sign Language (ASL), combining accessible technology with hands-on programming practice.
+              PythonProjectASL is a real-time American Sign Language (ASL) recognition and text-correction system. At its core is a Random Forest classifier trained on a self-collected MediaPipe landmark dataset of approximately 32,000 rows across 24 feature columns, reaching an estimated 60–70% recognition accuracy.
             </p>
             <p>
-              This project explores working with ASL data using Python, covering fundamentals like data handling, scripting, and visualization. It was developed as part of my coursework at California State University, Bakersfield.
+              Gesture timing introduces noise — missed letters, accidental spaces — so raw predictions pass through a local text-correction layer powered by Qwen running in LM Studio. Gesture shortcuts handle dynamic ASL letters that static landmarks alone can't capture.
             </p>
             <p>
-              Through this project I strengthened my problem-solving skills and gained practical experience writing clean, well-structured Python code, using Git for version control throughout development.
+              Everything runs locally on the machine: no frames or transcripts are sent anywhere, which keeps the pipeline fast, private, and free to operate.
             </p>
           </div>
 
