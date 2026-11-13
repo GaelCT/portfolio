@@ -27,7 +27,7 @@ window.NAVBAR_CONFIG = window.NAVBAR_CONFIG || {
         { label: "Projects", href: "projects.html" },
         { label: "About",    href: "about.html" },
         { label: "Contact",  href: "contact.html" },
-        { label: "Résumé",   href: "resume.html" }
+        { label: "Résumé",   href: "resume.html", track: "resume" }
     ],
 
     /* Optional: one accent color for the pill + focus ring (any CSS color).
@@ -48,7 +48,17 @@ window.NAVBAR_CONFIG = window.NAVBAR_CONFIG || {
        path on every page load; silently no-ops until the private stats app
        (the /stats directory, which never touches the repo) is uploaded to
        the server. Null disables. */
-    statsBeacon: '/stats/collect.php'
+    statsBeacon: '/stats/collect.php',
+
+    /* Outbound click tracking: map a domain to an event label and clicks on
+       links to that domain get logged by the stats beacon. To track one
+       specific link instead, put data-track="label" on it — or add a
+       per-link `track: "label"` in the navbar links list below. Add more
+       domains here any time (e.g. 'devpost.com': 'devpost'). */
+    trackClicks: {
+        'linkedin.com': 'linkedin',
+        'github.com': 'github'
+    }
 };
 
 (function () {
@@ -159,20 +169,48 @@ window.NAVBAR_CONFIG = window.NAVBAR_CONFIG || {
 
         /* Self-hosted stats: fire-and-forget pixel. Failures (e.g. the
            app not uploaded yet) are absorbed quietly on purpose. */
+        var beacon = function (params) {
+            var px = new Image();
+            px.src = cfg.statsBeacon + params + '&_=' + Date.now();
+        };
         if (cfg.statsBeacon) {
             var ref = document.referrer || '';
             if (location.origin && ref.indexOf(location.origin) === 0) { ref = ''; }
             var page = location.pathname.replace(/^\/+|\/+$/g, '') || 'home';
-            var px = new Image();
-            px.src = cfg.statsBeacon
-                + '?p=' + encodeURIComponent(page)
-                + '&r=' + encodeURIComponent(ref)
-                + '&_=' + Date.now();
+            beacon('?p=' + encodeURIComponent(page)
+                 + '&r=' + encodeURIComponent(ref));
+
+            /* Click events: domain-mapped outbound links and anything
+               tagged data-track (or per-link `track` in NAVBAR_CONFIG). */
+            var trackClicks = cfg.trackClicks || {};
+            document.addEventListener('click', function (ev) {
+                var el = ev.target;
+                if (!el || !el.closest) { return; }
+                var a = el.closest('a');
+                if (!a || !a.getAttribute) { return; }
+                var label = a.getAttribute('data-track') || null;
+                if (!label) {
+                    var href = a.getAttribute('href') || '';
+                    var host;
+                    try { host = new URL(href, location.href).hostname; }
+                    catch (err) { return; }
+                    for (var domain in trackClicks) {
+                        if (host === domain || host.slice(-(domain.length + 1)) === '.' + domain) {
+                            label = trackClicks[domain];
+                            break;
+                        }
+                    }
+                }
+                if (!label) { return; }
+                beacon('?p=' + encodeURIComponent(page)
+                     + '&e=' + encodeURIComponent(label));
+            }, true);
         }
 
         var links = (cfg.links || []).map(function (l) {
             var cur = l.label === current ? ' aria-current="page"' : '';
-            return '<li><a href="' + l.href + '"' + cur + '>' + l.label + '</a></li>';
+            var trk = l.track ? ' data-track="' + l.track + '"' : '';
+            return '<li><a href="' + l.href + '"' + cur + trk + '>' + l.label + '</a></li>';
         }).join('');
 
         var html = '' +
