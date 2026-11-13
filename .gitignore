@@ -1,2 +1,5 @@
 node_modules/
 tailwind.css
+
+# Private server-only app (uploaded by hand, excluded from CI rsync)
+/stats/

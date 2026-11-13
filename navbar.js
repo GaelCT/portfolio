@@ -42,7 +42,13 @@ window.NAVBAR_CONFIG = window.NAVBAR_CONFIG || {
     /* Optional: Google Analytics 4 measurement ID (format G-XXXXXXXXXX).
        Paste your ID here to enable analytics on every page; leave null
        to stay untracked. Create a free property at https://analytics.google.com */
-    ga4MeasurementId: null
+    ga4MeasurementId: null,
+
+    /* Optional: self-hosted stats beacon. Fires an invisible pixel to this
+       path on every page load; silently no-ops until the private stats app
+       (the /stats directory, which never touches the repo) is uploaded to
+       the server. Null disables. */
+    statsBeacon: '/stats/collect.php'
 };
 
 (function () {
@@ -149,6 +155,19 @@ window.NAVBAR_CONFIG = window.NAVBAR_CONFIG || {
             window.gtag = function () { window.dataLayer.push(arguments); };
             window.gtag('js', new Date());
             window.gtag('config', gaId);
+        }
+
+        /* Self-hosted stats: fire-and-forget pixel. Failures (e.g. the
+           app not uploaded yet) are absorbed quietly on purpose. */
+        if (cfg.statsBeacon) {
+            var ref = document.referrer || '';
+            if (location.origin && ref.indexOf(location.origin) === 0) { ref = ''; }
+            var page = location.pathname.replace(/^\/+|\/+$/g, '') || 'home';
+            var px = new Image();
+            px.src = cfg.statsBeacon
+                + '?p=' + encodeURIComponent(page)
+                + '&r=' + encodeURIComponent(ref)
+                + '&_=' + Date.now();
         }
 
         var links = (cfg.links || []).map(function (l) {

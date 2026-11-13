@@ -37,6 +37,7 @@ jobs:
             --exclude 'Makefile' --exclude 'README.md' \
             --exclude 'node_modules' --exclude 'package.json' --exclude 'package-lock.json' \
             --exclude 'tailwind.config.js' --exclude 'src' --exclude '.gitignore' \
+            --exclude 'stats' \
             --rsync-path="sudo rsync" \
             ./ ${{ secrets.USER }}@${{ secrets.HOST }}:/var/www/html/ \
           || rsync -avz --delete \
@@ -44,4 +45,5 @@ jobs:
             --exclude 'Makefile' --exclude 'README.md' \
             --exclude 'node_modules' --exclude 'package.json' --exclude 'package-lock.json' \
             --exclude 'tailwind.config.js' --exclude 'src' --exclude '.gitignore' \
+            --exclude 'stats' \
             ./ ${{ secrets.USER }}@${{ secrets.HOST }}:/var/www/html/
